@@ -1,7 +1,9 @@
-# Ornature
+# OrNature
 
-Single-page site for Ornature, an organic cafe and health & beauty range.
+Single-page site for OrNature, a juice bar, cafe and organic grocery range for the Cotswolds.
 
-One self-contained `index.html`: no build step, no dependencies, the shelf photograph inlined as base64. Open it in a browser or serve the folder.
+- `index.html` is the whole site: no build step, no dependencies.
+- `img/` holds the web-sized photography and the wordmark.
+- `Photos/` is the raw source folder and is deliberately not committed (see `.gitignore`).
 
 Live: https://merlinsgroup.github.io/ornature/
