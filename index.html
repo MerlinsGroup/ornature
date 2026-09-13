@@ -3,18 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OrNature: cold-pressed juice, organic grocery and a Cotswolds cafe</title>
-<meta name="description" content="OrNature is a juice bar, cafe and organic grocery range for the Cotswolds: cold-pressed juice, local dairy, Cotswolds honey, muesli, spices, herbal tea, gelato and a functional mushroom coffee. Everything traced back to a field we have stood in.">
+<title>OrNature Cafe: good food, brighter days</title>
+<meta name="description" content="OrNature is a juice bar, cafe and organic grocery shelf coming to the Cotswolds. Cold-pressed juice, organic coffee and a range you can trace back to the field.">
+<meta name="theme-color" content="#04270F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23044314' d='M22 2C12 3 4 7 4 15c0 2 .7 4 2 5.6L3 24h2.6l2.2-2.6C9.6 22.5 11.4 23 13 23c6 0 9-8 9-21ZM7 18.6C7.5 12 12 8.4 18.6 6.6 13 9 9 13.2 7 18.6Z'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://orgnature.co.uk/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="OrNature: cold-pressed juice, organic grocery and a Cotswolds cafe">
-<meta property="og:description" content="A juice bar, cafe and organic grocery range for the Cotswolds. Everything traced back to a field we have stood in.">
-<meta property="og:image" content="https://merlinsgroup.github.io/ornature/img/collection.jpg">
-<meta property="og:url" content="https://merlinsgroup.github.io/ornature/">
+<meta property="og:title" content="OrNature Cafe: good food, brighter days">
+<meta property="og:description" content="A juice bar, cafe and organic grocery shelf coming to the Cotswolds.">
+<meta property="og:image" content="https://orgnature.co.uk/img/hero.jpg">
+<meta property="og:url" content="https://orgnature.co.uk/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function(){ if(!window.ORN_OK) document.documentElement.classList.remove('js'); }, 5000);
+</script>
 <style>
 :root{
   --ink:#0B3C1B;
@@ -22,835 +29,874 @@
   --ink-soft:#4C6151;
   --paper:#F7F3EB;
   --paper-2:#EEE7DA;
-  --paper-3:#E4DCCB;
   --leaf:#2F6B3F;
   --gold:#C2912C;
   --gold-soft:#E3BE62;
-  --rule:rgba(11,60,27,.15);
-  --rule-strong:rgba(11,60,27,.28);
-  --measure:62ch;
-  --ease:cubic-bezier(.2,.7,.3,1);
+  --rule:rgba(11,60,27,.14);
+  --rule-strong:rgba(11,60,27,.3);
+  --pad:max(20px,4vw);
+  --head-h:78px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --out:cubic-bezier(.16,1,.3,1);
+  --curtain:cubic-bezier(.76,0,.24,1);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
 }
-*{box-sizing:border-box}
+*,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
+  margin:0;overflow-x:clip;
+  background:var(--paper);color:var(--ink);
   font-family:"Outfit",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-weight:300;
-  font-size:clamp(16px,.5vw + 14.6px,18px);
-  line-height:1.65;
+  font-weight:300;font-size:clamp(16px,.35vw + 14.8px,18px);line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
-h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:500;margin:0;line-height:1.08}
-p{margin:0 0 1.1em}
-a{color:inherit}
+body.loading,body.menu-open{overflow:hidden}
 img{display:block;max-width:100%}
-figure{margin:0}
-.wrap{width:min(1200px,92vw);margin-inline:auto}
-.narrow{width:min(880px,92vw);margin-inline:auto}
-.kicker{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf)}
-.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:200}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:500}
+p{margin:0}
+.wrap{width:min(1200px,100% - var(--pad)*2);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;z-index:300;background:var(--gold);color:#1B2E12;padding:10px 16px}
 .skip:focus{left:12px;top:12px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ico{width:1em;height:1em;flex:none}
 
-/* ---------- loading screen ---------- */
-body.loading{overflow:hidden}
+/* ---------- loader ---------- */
 .loader{
-  position:fixed;inset:0;z-index:120;display:grid;place-items:center;
-  background:var(--paper);
-  transition:opacity .85s ease,visibility .85s ease;
+  position:fixed;inset:0;z-index:200;display:none;place-items:center;
+  background:var(--ink-deep);color:var(--paper);
+  transition:transform 1.05s var(--curtain);
 }
-.loader.done{opacity:0;visibility:hidden;pointer-events:none}
-.loader-inner{display:flex;flex-direction:column;align-items:center;padding:0 28px;text-align:center}
-.loader-mark{
-  width:min(340px,72vw);height:auto;
-  opacity:0;transform:translateY(12px) scale(.97);
-  animation:markIn 1.15s var(--ease) .12s forwards;
-}
-.loader-tag{
-  margin-top:20px;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);
-  opacity:0;animation:fadeUp .9s ease .72s forwards;
-}
-.loader-bar{display:block;width:min(190px,42vw);height:1px;margin-top:34px;background:var(--rule);overflow:hidden}
-.loader-bar i{
-  display:block;height:100%;width:100%;background:var(--leaf);
-  transform:scaleX(0);transform-origin:left;
-  animation:barFill 1.8s cubic-bezier(.35,.1,.2,1) .28s forwards;
-}
-@keyframes markIn{to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes barFill{to{transform:scaleX(1)}}
+.js .loader{display:grid}
+.loader.done{transform:translateY(-100%)}
+.loader-inner{display:flex;flex-direction:column;align-items:center;padding:0 24px}
+.loader img{width:min(290px,62vw);height:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(16px);animation:rise 1s var(--out) .1s forwards}
+.loader-tag{margin-top:18px;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);opacity:0;animation:fade .8s ease .55s forwards}
+.loader-bar{display:block;width:min(180px,40vw);height:1px;margin-top:30px;background:rgba(247,243,235,.16);overflow:hidden}
+.loader-bar i{display:block;height:100%;background:var(--gold-soft);transform:scaleX(0);transform-origin:left;animation:fill 1.2s var(--curtain) .2s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes fill{to{transform:scaleX(1)}}
 
-/* ---------- scroll progress ---------- */
-.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;pointer-events:none}
-.progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--leaf),var(--gold));transform:scaleX(0);transform-origin:left}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:90;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
 
 /* ---------- header ---------- */
-header{
-  position:sticky;top:0;z-index:50;padding:22px 0 14px;
-  background:rgba(247,243,235,0);
-  transition:padding .32s ease,background .32s ease,box-shadow .32s ease;
+.site-head{
+  position:fixed;top:0;left:0;right:0;z-index:80;height:var(--head-h);
+  display:flex;align-items:center;color:var(--paper);
+  transition:transform .5s var(--out),background-color .35s ease,color .35s ease,box-shadow .35s ease;
 }
-header.stuck{
-  padding:10px 0 10px;
-  background:rgba(247,243,235,.92);
-  -webkit-backdrop-filter:saturate(1.2) blur(10px);
-  backdrop-filter:saturate(1.2) blur(10px);
-  box-shadow:0 1px 0 var(--rule);
-}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-head::before{content:"";position:absolute;inset:0 0 -30px;background:linear-gradient(to bottom,rgba(4,39,15,.5),rgba(4,39,15,0));pointer-events:none;transition:opacity .35s ease}
+.site-head.solid{background:rgba(247,243,235,.92);color:var(--ink);box-shadow:0 1px 0 var(--rule);-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2)}
+.site-head.solid::before{opacity:0}
+.site-head.hide{transform:translateY(-100%)}
+.bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .mark{display:block;line-height:0}
-.mark img{width:clamp(146px,16vw,192px);height:auto;transition:width .32s ease}
-header.stuck .mark img{width:clamp(124px,12vw,150px)}
-nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:.82rem;letter-spacing:.02em}
-nav a{text-decoration:none;padding-bottom:4px;position:relative}
-nav a::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--leaf);
-  transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease);
+.mark img{width:clamp(128px,12vw,164px);height:auto;filter:brightness(0) invert(1);transition:filter .35s ease}
+.solid .mark img{filter:none}
+.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:.86rem;letter-spacing:.02em}
+.nav a{position:relative;display:block;padding:6px 0;text-decoration:none}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--out)}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
+.head-cta{display:inline-flex;align-items:center;padding:10px 20px;border:1px solid currentColor;border-radius:999px;font-size:.82rem;text-decoration:none;transition:background-color .25s ease,border-color .25s ease,color .25s ease}
+.head-cta:hover{background:var(--gold);border-color:var(--gold);color:#1B2E12}
+.burger{display:none;position:relative;width:46px;height:46px;margin-right:-10px;border:0;background:transparent;color:inherit;cursor:pointer}
+.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .45s var(--out),top .45s var(--out)}
+.burger span:nth-child(1){top:18px}
+.burger span:nth-child(2){top:27px}
+.menu-open .burger span:nth-child(1){top:22.5px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){top:22.5px;transform:rotate(-45deg)}
+body.menu-open .site-head{background:transparent;color:var(--paper);box-shadow:none;transform:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.menu-open .site-head::before{opacity:0}
+body.menu-open .mark img{filter:brightness(0) invert(1)}
+@media(max-width:900px){.nav,.head-cta{display:none}.burger{display:block}}
+
+.menu-overlay{
+  position:fixed;inset:0;z-index:79;display:flex;flex-direction:column;justify-content:center;
+  padding:var(--head-h) var(--pad) 40px;background:var(--ink-deep);color:var(--paper);
+  opacity:0;transition:opacity .45s ease;
 }
-nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
-@media(max-width:900px){nav{display:none}}
-section[id],main[id]{scroll-margin-top:84px}
+.menu-overlay[hidden]{display:none}
+.menu-overlay.open{opacity:1}
+.menu-overlay ul{list-style:none;margin:0;padding:0}
+.menu-overlay li{overflow:hidden}
+.menu-overlay li a{display:block;font-family:var(--serif);font-size:clamp(2.4rem,11vw,3.6rem);line-height:1.18;text-decoration:none;transform:translateY(105%);transition:transform .75s var(--out);transition-delay:calc(var(--i,0) * 60ms + 100ms)}
+.menu-overlay.open li a{transform:none}
+.menu-mail{margin-top:34px;font-size:.92rem;color:var(--gold-soft);text-decoration:none}
+
+/* ---------- shared ---------- */
+.label{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf)}
+.label::before{content:"";width:28px;height:1px;background:currentColor}
+.h{font-size:clamp(2.6rem,5.8vw,5.2rem);line-height:.98;letter-spacing:-.018em}
+.h em{font-style:italic;font-weight:400;color:var(--leaf)}
+.lead{max-width:38ch;margin-top:24px;font-size:clamp(1.02rem,.4vw + .92rem,1.2rem);color:var(--ink-soft)}
+.sec{padding:clamp(88px,11vw,150px) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(38px,4.6vw,60px)}
+.sec-head .lead{margin-top:0}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:999px;
+  border:1px solid transparent;font-size:.9rem;font-weight:400;letter-spacing:.01em;text-decoration:none;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .45s var(--out);
+}
+.btn .ico{transition:transform .35s var(--out)}
+.btn:hover .ico{transform:translateX(4px)}
+.btn-gold{background:var(--gold);color:#1B2E12}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-line{border-color:rgba(247,243,235,.5);color:var(--paper)}
+.btn-line:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding-bottom:6px;border-bottom:1px solid var(--rule-strong);font-size:.92rem;text-decoration:none;transition:border-color .25s ease,gap .35s var(--out)}
+.link-arrow:hover{gap:16px;border-color:var(--leaf)}
+
+/* ---------- motion primitives ---------- */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.06em 0 .12em;margin:-.06em 0 -.12em}
+.w>span{display:inline-block}
+.js [data-split] .w>span{transform:translateY(108%);transition:transform 1s var(--out);transition-delay:calc(var(--i,0) * 55ms)}
+.js [data-split].in .w>span{transform:none}
+
+.js [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--out),transform .9s var(--out);transition-delay:calc(var(--i,0) * 90ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+.js [data-reveal="clip"]{opacity:1;transform:none;clip-path:inset(100% 0 0 0);transition:clip-path 1.25s var(--curtain);transition-delay:calc(var(--i,0) * 90ms)}
+.js [data-reveal="clip"].in{clip-path:inset(0 0 0 0)}
+.js [data-reveal="clip"] img{transform:scale(1.2);transition:transform 1.7s var(--out)}
+.js [data-reveal="clip"].in img{transform:none}
 
 /* ---------- hero ---------- */
-.hero{padding:min(9vh,74px) 0 44px;max-width:1000px}
-.hero h1{font-size:clamp(2.5rem,6.2vw,4.8rem);letter-spacing:-.014em}
-.hero h1 em{font-style:italic;font-weight:400}
-.hero .lede{margin-top:26px;max-width:54ch;font-size:1.05rem;color:var(--ink-soft)}
-.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
-.btn{
-  display:inline-block;padding:13px 27px;border-radius:999px;text-decoration:none;
-  font-size:.88rem;font-weight:400;letter-spacing:.015em;
-  background:var(--ink);color:var(--paper);border:1px solid var(--ink);
-  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s var(--ease);
+.hero{position:relative;display:flex;align-items:flex-end;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--ink-deep);color:var(--paper)}
+.hero-media{position:absolute;inset:0;will-change:transform}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:50% 34%}
+.js .hero-img{transform:scale(1.16);transition:transform 2.8s var(--out)}
+.ready .hero-img{transform:scale(1.02)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,39,15,.72) 0%,rgba(4,39,15,.42) 40%,rgba(4,39,15,0) 68%),linear-gradient(to top,rgba(4,39,15,.94) 0%,rgba(4,39,15,.66) 30%,rgba(4,39,15,.2) 62%,rgba(4,39,15,.3) 100%)}
+.hero-inner{position:relative;z-index:2;padding-bottom:clamp(60px,10vh,112px)}
+.eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:22px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+.eyebrow span+span::before{content:"";display:inline-block;width:4px;height:4px;margin:0 12px 0 2px;border-radius:50%;background:currentColor;vertical-align:middle;opacity:.7}
+.hero-title{font-size:clamp(3.3rem,10.4vw,9.8rem);line-height:.9;letter-spacing:-.022em}
+.hero-title em{font-style:italic;font-weight:400;color:var(--gold-soft)}
+.hero-sub{max-width:42ch;margin-top:28px;font-size:clamp(1rem,.45vw + .9rem,1.2rem);color:rgba(247,243,235,.86)}
+.hero .actions{margin-top:34px}
+.js .hero-title .w>span{transition:transform 1.25s var(--out);transition-delay:calc(var(--i,0) * 120ms + 150ms)}
+.ready .hero-title .w>span{transform:none}
+.js [data-hero]{opacity:0;transform:translateY(22px);transition:opacity 1s var(--out),transform 1s var(--out);transition-delay:var(--d,0s)}
+.ready [data-hero]{opacity:1;transform:none}
+.scroll-cue{position:absolute;right:var(--pad);bottom:clamp(60px,10vh,112px);z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(247,243,235,.75);text-decoration:none}
+.scroll-cue i{position:relative;display:block;width:1px;height:70px;background:rgba(247,243,235,.22);overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--gold-soft);animation:cue 2.1s var(--ease) infinite}
+@keyframes cue{to{top:100%}}
+@media(max-width:700px){.scroll-cue{display:none}}
+
+/* ---------- ticker ---------- */
+.ticker{overflow:hidden;padding:20px 0;background:var(--gold);color:#1B2E12}
+.ticker-track{display:flex;width:max-content;animation:tick 40s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:flex;flex:none;align-items:center}
+.ticker-group span{display:inline-flex;align-items:center;gap:30px;padding-right:30px;font-family:var(--serif);font-size:clamp(1.45rem,2.5vw,2.2rem);font-style:italic;white-space:nowrap}
+.ticker-group .ico{width:.62em;height:.62em;opacity:.55}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- statement ---------- */
+.statement{padding:clamp(100px,14vw,200px) 0 clamp(40px,6vw,80px)}
+.big-words{max-width:17ch;font-family:var(--serif);font-size:clamp(2.3rem,6vw,5.6rem);line-height:1.04;letter-spacing:-.016em}
+.big-words em{font-style:italic;color:var(--leaf)}
+.js .big-words .sw{opacity:.13;transition:opacity .4s ease}
+.big-words .sw.lit{opacity:1}
+
+/* ---------- story ---------- */
+.story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(44px,6vw,100px);align-items:center}
+.collage{position:relative;aspect-ratio:1/1.02}
+.collage figure{position:absolute;margin:0;will-change:transform}
+.collage .ph{overflow:hidden;border-radius:6px;box-shadow:0 34px 60px -34px rgba(4,39,15,.5)}
+.collage img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.c1{top:0;left:0;width:62%;z-index:1}
+.c2{top:30%;right:0;width:50%;z-index:2}
+.c3{bottom:0;left:9%;width:55%;z-index:3}
+.tag{position:absolute;top:12px;left:12px;z-index:2;padding:6px 12px;border-radius:999px;background:rgba(247,243,235,.92);color:var(--ink);font-size:.68rem;letter-spacing:.06em;white-space:nowrap}
+@media(max-width:600px){.tag{top:8px;left:8px;padding:4px 9px;font-size:.6rem}}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}.collage{aspect-ratio:1/1.12}}
+
+/* ---------- numbers band ---------- */
+.band{position:relative;overflow:hidden;padding:clamp(96px,12vw,170px) 0;background:var(--ink-deep);color:var(--paper)}
+.band-bg{position:absolute;inset:-14% 0;will-change:transform}
+.band-bg img{width:100%;height:100%;object-fit:cover}
+.band-shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(4,39,15,.92) 0%,rgba(4,39,15,.66) 55%,rgba(4,39,15,.4) 100%)}
+.band .wrap{position:relative}
+.band .h{max-width:13ch}
+.band .h em{color:var(--gold-soft)}
+.stats{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:clamp(50px,6vw,90px)}
+.stat{padding-top:22px;border-top:1px solid rgba(247,243,235,.28)}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(3rem,5.8vw,5.2rem);line-height:1;color:var(--gold-soft);font-variant-numeric:tabular-nums}
+.stat span{display:block;max-width:22ch;margin-top:12px;font-size:.86rem;color:rgba(247,243,235,.78)}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr;row-gap:40px}}
+
+/* ---------- towns ---------- */
+.towns{position:relative;background:var(--paper-2)}
+.towns-sticky{padding:clamp(88px,11vw,140px) 0 clamp(70px,8vw,110px)}
+.towns-track{
+  position:relative;display:flex;gap:clamp(16px,1.8vw,26px);
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:4px max(var(--pad),calc((100% - 1200px) / 2)) 10px;
 }
-.btn:hover,.btn:focus-visible{background:#14512a;border-color:#14512a;transform:translateY(-1px)}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
-.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--paper-2);border-color:var(--leaf)}
+.towns-track::-webkit-scrollbar{display:none}
+.town{position:relative;flex:none;width:clamp(260px,76vw,420px);aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:var(--ink-deep);color:var(--paper);scroll-snap-align:center}
+.town img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--out)}
+.town:hover img{transform:scale(1.06)}
+.town::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,39,15,.94) 0%,rgba(4,39,15,.35) 42%,rgba(4,39,15,0) 68%)}
+.town-meta{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(22px,2.4vw,30px)}
+.town h3{margin:14px 0 8px;font-size:clamp(2.1rem,3.2vw,3rem);line-height:1}
+.town p{max-width:28ch;font-size:.88rem;color:rgba(247,243,235,.82)}
+.rank{display:inline-block;padding:6px 12px;border:1px solid rgba(247,243,235,.3);border-radius:999px;background:rgba(247,243,235,.14);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rank.r-ex{background:var(--gold);border-color:var(--gold);color:#1B2E12}
+.rank.r-st{background:var(--leaf);border-color:var(--leaf)}
+.town-end{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,2.6vw,34px);background:var(--ink)}
+.town-end::after{display:none}
+.also{list-style:none;margin:22px 0 0;padding:0}
+.also li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid rgba(247,243,235,.16)}
+.also b{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.1}
+.also span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);white-space:nowrap}
+.towns-progress{height:2px;margin-top:28px;overflow:hidden;border-radius:2px;background:var(--rule)}
+.towns-progress i{display:block;height:100%;background:var(--leaf);transform:scaleX(0);transform-origin:left}
+.towns.is-pinned .towns-sticky{position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;height:100vh;overflow:hidden;padding:calc(var(--head-h) + 8px) 0 36px}
+.towns.is-pinned .towns-track{overflow:visible;scroll-snap-type:none;will-change:transform}
+.towns.is-pinned .town{width:auto;height:min(56vh,560px)}
 
-/* ---------- figures ---------- */
-.shot{width:min(1200px,92vw);margin:8px auto 0}
-.shot img{width:100%;height:auto;border-radius:3px}
-.shot figcaption,.cap{margin-top:13px;font-size:.79rem;color:var(--ink-soft);max-width:68ch;letter-spacing:.005em}
-.framed{overflow:hidden;border-radius:3px;background:var(--paper-2)}
-.framed img{width:100%;height:auto;transition:transform 1.1s var(--ease)}
-.framed:hover img{transform:scale(1.025)}
-.parwrap{display:block;overflow:hidden;border-radius:3px;background:var(--paper-2)}
-.wave{display:block;width:100%;height:clamp(30px,4.4vw,58px);margin-top:clamp(46px,6vw,80px)}
-
-/* ---------- panorama band ---------- */
-.panorama{position:relative;width:100%;margin:0;overflow:hidden;background:var(--paper-2)}
-.panorama img{width:100%;height:clamp(200px,30vw,380px);object-fit:cover}
-.panorama figcaption{
-  position:absolute;left:0;right:0;bottom:0;padding:38px 6vw 16px;
-  font-size:.76rem;color:var(--paper);
-  background:linear-gradient(to top,rgba(4,39,15,.72),rgba(4,39,15,0));
+/* ---------- range ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:250px 250px 320px auto;gap:14px}
+.tile{position:relative;margin:0;overflow:hidden;border-radius:8px;background:var(--paper-2);isolation:isolate}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--out)}
+.tile:hover img{transform:scale(1.05)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:48px 24px 22px;color:var(--paper);background:linear-gradient(to top,rgba(4,39,15,.88),rgba(4,39,15,0))}
+.tile figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.55rem,2.3vw,2.1rem);line-height:1.05}
+.tile figcaption span{display:block;max-width:36ch;margin-top:4px;font-size:.85rem;color:rgba(247,243,235,.82)}
+.t-big{grid-column:1/4;grid-row:1/3}
+.t-tall{grid-column:4/5;grid-row:1/3}
+.t-a{grid-column:1/3;grid-row:3/4}
+.t-b{grid-column:3/5;grid-row:3/4}
+.t-list{grid-column:1/-1;grid-row:4/5;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;padding:clamp(26px,3vw,40px);background:var(--ink);color:var(--paper)}
+.t-list h3{font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0;max-width:820px}
+.chips li{padding:9px 16px;border:1px solid rgba(247,243,235,.24);border-radius:999px;font-size:.85rem;cursor:default;transition:background-color .25s ease,border-color .25s ease,color .25s ease}
+.chips li:hover{background:var(--gold);border-color:var(--gold);color:#1B2E12}
+@media(max-width:900px){
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .t-big,.t-tall,.t-a,.t-b,.t-list{grid-column:auto;grid-row:auto}
+  .t-big{grid-column:1/-1;aspect-ratio:2/1}
+  .t-tall,.t-a{aspect-ratio:3/4}
+  .t-b{grid-column:1/-1;aspect-ratio:3/2}
+  .t-list{grid-column:1/-1}
 }
-
-/* ---------- picture trio ---------- */
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);margin-top:clamp(38px,5vw,60px)}
-.trio figure{margin:0}
-.trio .framed{display:block}
-.trio img{width:100%;height:clamp(200px,22vw,300px);object-fit:cover}
-.trio figcaption{margin-top:11px;font-size:.78rem;color:var(--ink-soft);line-height:1.5}
-.trio .where{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:4px}
-.dark .trio figcaption{color:rgba(247,243,235,.72)}
-.dark .trio .where{color:var(--gold-soft)}
-@media(max-width:820px){.trio{grid-template-columns:1fr;gap:26px}.trio img{height:auto}}
-
-
-/* ---------- credits ---------- */
-.credits{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);font-size:.71rem;line-height:1.65;color:var(--ink-soft)}
-.credits a{border-bottom:1px solid var(--rule)}
-
-/* ---------- section furniture ---------- */
-section{padding:clamp(62px,8vw,110px) 0}
-.head{display:flex;align-items:baseline;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:10px}
-.head h2{font-size:clamp(2rem,4vw,3.05rem);letter-spacing:-.012em}
-.head .aside{font-size:.84rem;color:var(--ink-soft);max-width:34ch;margin:0}
-.intro{max-width:var(--measure);color:var(--ink-soft);margin-top:20px}
-.band{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.dark{background:var(--ink-deep);color:var(--paper)}
-.dark h2,.dark h3{color:var(--paper)}
-.dark p{color:rgba(247,243,235,.8)}
-.dark .kicker{color:var(--gold-soft)}
-.dark .aside{color:rgba(247,243,235,.7)}
-
-/* ---------- the collection ---------- */
-.range{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));
-  gap:0 clamp(24px,3vw,44px);margin-top:46px;
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .t-big{aspect-ratio:auto}
+  .t-big img{position:static;height:auto;aspect-ratio:2/1}
+  .t-big figcaption{position:static;padding:20px 22px;background:var(--ink)}
+  .t-tall,.t-a{aspect-ratio:4/5}
 }
-.item{padding:18px 0;border-top:1px solid var(--rule)}
-.item h3{font-size:1.28rem;margin-bottom:5px}
-.item p{font-size:.83rem;color:var(--ink-soft);margin:0;line-height:1.55}
-.item .size{display:inline-block;margin-top:7px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
-
-.duo{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;margin-top:clamp(48px,6vw,84px)}
-.duo.flip{grid-template-columns:1fr 1.25fr}
-.duo h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin:12px 0 12px}
-.duo p{font-size:.94rem;color:var(--ink-soft)}
-.duo .kicker{margin-bottom:4px}
-.duo .media.portrait{max-width:420px;justify-self:center;width:100%}
-@media(max-width:820px){
-  .duo,.duo.flip{grid-template-columns:1fr;gap:26px}
-  .duo .txt{order:2}
-  .duo .media.portrait{max-width:340px}
-}
-
-/* ---------- menu board ---------- */
-.board{list-style:none;margin:34px 0 0;padding:0;max-width:780px}
-.board li{
-  display:flex;align-items:baseline;gap:14px;padding:17px 10px;margin:0 -10px;
-  border-bottom:1px solid var(--rule);transition:background .28s ease;
-}
-.board li:first-child{border-top:1px solid var(--rule)}
-.board li:hover{background:rgba(47,107,63,.06)}
-.board .name{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;line-height:1.2;white-space:nowrap}
-.board .note{flex:1;font-size:.82rem;color:var(--ink-soft);line-height:1.5}
-.board .price{font-size:.9rem;color:var(--leaf);font-variant-numeric:tabular-nums}
-@media(max-width:620px){
-  .board li{flex-wrap:wrap;gap:5px}
-  .board .note{flex-basis:100%;order:3}
-  .board .price{margin-left:auto}
-}
-
-/* ---------- field notes ---------- */
-.note-grid{display:grid;gap:clamp(44px,5vw,72px);margin-top:48px}
-.note-entry{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(26px,3.4vw,52px);align-items:start}
-.note-entry.flip{grid-template-columns:1.1fr 1fr}
-.note-entry.flip .media{order:2}
-.note-entry h3{font-size:clamp(1.5rem,2.4vw,2rem);margin:10px 0 12px}
-.note-entry p{font-size:.92rem;color:var(--ink-soft)}
-.note-entry .dateline{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf)}
-.media-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:860px){
-  .note-entry,.note-entry.flip{grid-template-columns:1fr;gap:22px}
-  .note-entry.flip .media{order:0}
-}
-
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,46px);margin:38px 0 8px}
-.stat{border-top:2px solid var(--gold);padding-top:16px}
-.stat b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2rem,4vw,2.9rem);line-height:1;font-variant-numeric:tabular-nums}
-.stat span{display:block;margin-top:8px;font-size:.78rem;color:var(--ink-soft);line-height:1.5}
-.dark .stat span{color:rgba(247,243,235,.72)}
-@media(max-width:640px){.stats{grid-template-columns:1fr;gap:24px}}
-
-table.data{width:100%;border-collapse:collapse;margin-top:26px;font-size:.86rem}
-table.data caption{text-align:left;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);padding-bottom:12px}
-table.data th,table.data td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--rule)}
-table.data th{font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-table.data td:last-child,table.data th:last-child{text-align:right;padding-right:0;font-variant-numeric:tabular-nums}
-.dark table.data th,.dark table.data td{border-color:rgba(247,243,235,.18)}
-.dark table.data th{color:rgba(247,243,235,.66)}
-.scroller{overflow-x:auto}
 
 /* ---------- sourcing ---------- */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,36px);margin-top:50px;counter-reset:s}
-.step{counter-increment:s;padding-top:18px;border-top:2px solid var(--ink)}
-.dark .step{border-top-color:var(--gold)}
-.step::before{content:counter(s,decimal-leading-zero);display:block;font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--leaf);margin-bottom:9px}
-.dark .step::before{color:var(--gold-soft)}
-.step h3{font-size:1.3rem;margin-bottom:8px}
-.step p{font-size:.85rem;margin:0}
+.source{position:relative;overflow:hidden;padding:clamp(96px,12vw,170px) 0;background:var(--ink-deep);color:var(--paper)}
+.source-bg{position:absolute;inset:-14% 0;will-change:transform}
+.source-bg img{width:100%;height:100%;object-fit:cover}
+.source-shade{position:absolute;inset:0;background:rgba(4,39,15,.8)}
+.source .wrap{position:relative}
+.source .label{color:var(--gold-soft)}
+.source .h em{color:var(--gold-soft)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;margin:clamp(48px,5vw,72px) 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:28px 24px 30px;border:1px solid rgba(247,243,235,.16);border-radius:8px;background:rgba(247,243,235,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.js .steps li.in{transition:opacity .9s var(--out),transform .45s var(--out),background-color .3s ease;transition-delay:0s}
+.steps li:hover,.js .steps li.in:hover{transform:translateY(-6px);background:rgba(247,243,235,.12)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;margin-bottom:38px;font-family:var(--serif);font-size:1.05rem;color:var(--gold-soft)}
+.steps h3{margin-bottom:8px;font-size:1.95rem;line-height:1}
+.steps p{font-size:.9rem;color:rgba(247,243,235,.78)}
+.partners{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:44px;font-size:.92rem;color:rgba(247,243,235,.86)}
+.partners .label{margin:0 6px 0 0}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.steps{grid-template-columns:1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
 
-/* ---------- visit ---------- */
-.cols{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
-.hours{list-style:none;margin:26px 0 0;padding:0;font-size:.92rem}
-.hours li{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid rgba(247,243,235,.18);color:rgba(247,243,235,.86)}
-.dark .btn{background:var(--gold);border-color:var(--gold);color:#1B2E12}
-.dark .btn:hover,.dark .btn:focus-visible{background:var(--gold-soft);border-color:var(--gold-soft)}
-.partner{margin-top:36px;padding-top:24px;border-top:1px solid rgba(247,243,235,.18);font-size:.86rem}
-.partner a{color:var(--gold-soft)}
-@media(max-width:820px){.cols{grid-template-columns:1fr}}
+/* ---------- format ---------- */
+.format{background:var(--paper-2)}
+.format-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(44px,6vw,96px);align-items:center}
+.format-img{margin:0}
+.format-img .ph{overflow:hidden;border-radius:8px}
+.format-img img{width:100%;height:auto}
+.format-img figcaption{margin-top:12px;font-size:.8rem;color:var(--ink-soft)}
+.menu{margin-top:40px}
+.menu-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.menu ul{list-style:none;margin:12px 0 0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);transition:padding .4s var(--out),color .25s ease}
+.menu li:hover{padding-left:10px;color:var(--leaf)}
+.menu .n{font-family:var(--serif);font-size:1.45rem;line-height:1.2;white-space:nowrap}
+.menu .dots{flex:1;min-width:12px;border-bottom:1px dotted var(--rule-strong);transform:translateY(-6px)}
+.menu .p{font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:900px){.format-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.cta{position:relative;overflow:hidden;padding:clamp(120px,15vw,220px) 0 clamp(96px,11vw,150px);background:var(--ink-deep);color:var(--paper);text-align:center}
+.sun{position:absolute;left:50%;top:56%;width:min(920px,130vw);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(227,190,98,.3) 0%,rgba(194,145,44,.12) 34%,rgba(4,39,15,0) 68%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.12);opacity:.72}}
+.cta .wrap{position:relative}
+.cta-title{font-size:clamp(3.2rem,9.4vw,8.8rem);line-height:.92;letter-spacing:-.022em}
+.cta-title em{font-style:italic;font-weight:400;color:var(--gold-soft)}
+.cta p{max-width:40ch;margin:28px auto 0;color:rgba(247,243,235,.8)}
+.cta .actions{justify-content:center;margin-top:38px}
+.cta .fine{margin-top:26px;font-size:.82rem;color:rgba(247,243,235,.5)}
 
 /* ---------- footer ---------- */
-footer{padding:48px 0 60px;font-size:.8rem;color:var(--ink-soft)}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
-footer a:hover{border-color:var(--leaf)}
-
-:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
-
-/* ---------- motion ---------- */
-[data-anim]{
-  opacity:0;transform:translateY(24px);
-  transition:opacity .9s var(--ease),transform .9s var(--ease);
-  transition-delay:var(--d,0s);
-}
-[data-anim].in{opacity:1;transform:none}
-[data-wipe]{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease) var(--d,0s)}
-[data-wipe].in{clip-path:inset(0 0 0 0)}
-.par{will-change:transform}
+.foot{padding-bottom:40px;background:var(--ink-deep);color:rgba(247,243,235,.7);font-size:.86rem}
+.foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;padding:34px 0;border-top:1px solid rgba(247,243,235,.14)}
+.foot .mark img{width:136px;filter:brightness(0) invert(1)}
+.foot ul{display:flex;flex-wrap:wrap;gap:10px 26px;list-style:none;margin:0;padding:0}
+.foot a{text-decoration:none;transition:color .2s ease}
+.foot a:hover{color:var(--gold-soft)}
+.credits{padding-top:22px;border-top:1px solid rgba(247,243,235,.1);font-size:.7rem;line-height:1.7;color:rgba(247,243,235,.45)}
+.credits a{text-decoration:underline;text-decoration-color:rgba(247,243,235,.25);text-underline-offset:2px}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  [data-anim],[data-anim].in{opacity:1;transform:none;transition:none}
-  [data-wipe],[data-wipe].in{clip-path:none;transition:none}
-  .framed img,.framed:hover img{transform:none;transition:none}
-  .loader-mark,.loader-tag,.loader-bar i{animation:none;opacity:1;transform:none}
-  .loader-bar i{transform:scaleX(1)}
-  header,.mark img{transition:none}
-  .par{transform:none !important}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important}
+  .loader{display:none !important}
+  .js [data-reveal],.js [data-reveal="clip"]{opacity:1;transform:none;clip-path:none}
+  .js [data-reveal="clip"] img,.js .hero-img{transform:none}
+  .js [data-split] .w>span{transform:none}
+  .js [data-hero]{opacity:1;transform:none}
+  .js .big-words .sw{opacity:1}
+  .ticker-track,.sun{animation:none}
 }
 </style>
 </head>
 <body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M22 2C12 3 4 7 4 15c0 2 .7 4 2 5.6L3 24h2.6l2.2-2.6C9.6 22.5 11.4 23 13 23c6 0 9-8 9-21ZM7 18.6C7.5 12 12 8.4 18.6 6.6 13 9 9 13.2 7 18.6Z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
 
 <div class="loader" id="loader" role="status" aria-label="Loading OrNature">
   <div class="loader-inner">
-    <img class="loader-mark" src="img/logo.png" width="1200" height="319" alt="OrNature">
+    <img src="img/logo.png" width="1200" height="319" alt="">
     <span class="loader-tag">Good food. Brighter days.</span>
     <span class="loader-bar" aria-hidden="true"><i></i></span>
   </div>
 </div>
-<noscript><style>.loader{display:none}.progress{display:none}</style></noscript>
 
-<header>
+<header class="site-head" id="head">
   <div class="wrap bar">
-    <a class="mark" href="#top" aria-label="OrNature, home">
-      <img src="img/logo.png" width="1200" height="319" alt="OrNature">
-    </a>
-    <nav aria-label="Main">
+    <a class="mark" href="#top" aria-label="OrNature, back to top"><img src="img/logo.png" width="1200" height="319" alt="OrNature"></a>
+    <nav class="nav" aria-label="Main">
       <ul>
-        <li><a href="#ground">The groundwork</a></li>
-        <li><a href="#where">Where</a></li>
-        <li><a href="#collection">Collection</a></li>
-        <li><a href="#shop">The shop</a></li>
-        <li><a href="#notes">Field notes</a></li>
-        <li><a href="#visit">Visit</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#towns">Towns</a></li>
+        <li><a href="#range">Range</a></li>
+        <li><a href="#source">Sourcing</a></li>
       </ul>
     </nav>
+    <a class="head-cta" href="#contact">Get in touch</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
   </div>
 </header>
 
-<main id="main">
-  <div id="top"></div>
+<div class="menu-overlay" id="menu" hidden>
+  <ul>
+    <li><a href="#story" style="--i:0">Story</a></li>
+    <li><a href="#towns" style="--i:1">Towns</a></li>
+    <li><a href="#range" style="--i:2">Range</a></li>
+    <li><a href="#source" style="--i:3">Sourcing</a></li>
+    <li><a href="#format" style="--i:4">The format</a></li>
+    <li><a href="#contact" style="--i:5">Get in touch</a></li>
+  </ul>
+  <a class="menu-mail" href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com</a>
+</div>
 
-  <div class="wrap hero">
-    <h1>Everything on the shelf goes back to a field <em>we have stood in.</em></h1>
-    <p class="lede">OrNature is a juice bar, a cafe and an organic grocery range, built for the Cotswolds. Cold pressed in glass, milled in small batches, and a list short enough that we can print the whole of it on the pack.</p>
-    <div class="actions">
-      <a class="btn" href="#ground">See the groundwork</a>
-      <a class="btn ghost" href="#collection">See the collection</a>
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <img class="hero-img" src="img/hero.jpg" width="1448" height="1086" alt="The OrNature Cafe shopfront: a pale timber frontage under a green awning, a juice bar window stacked with citrus and herbs, a chilled cabinet of cold-pressed bottles, and planting trailing down either side of the fascia." fetchpriority="high">
+    </div>
+    <div class="hero-shade"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-hero style="--d:.2s"><span>Juice bar</span><span>Cafe</span><span>Grocery</span></p>
+      <h1 class="hero-title" data-split="hero">Good food.<br><em>Brighter days.</em></h1>
+      <p class="hero-sub" data-hero style="--d:.75s">Cold-pressed juice, organic coffee and a grocery shelf you can trace back to the field. Coming to the Cotswolds.</p>
+      <div class="actions" data-hero style="--d:.9s">
+        <a class="btn btn-gold magnetic" href="#story">See the plan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="btn btn-line magnetic" href="#range">The range</a>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#statement" aria-label="Scroll to the story" data-hero style="--d:1.2s"><span>Scroll</span><i></i></a>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <span>Cold-pressed juice <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Organic coffee <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Loose leaf tea <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Local dairy <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Cotswolds honey <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Sourdough <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Mushroom coffee <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Gelato <svg class="ico"><use href="#leaf"/></svg></span>
+      </div>
+      <div class="ticker-group">
+        <span>Cold-pressed juice <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Organic coffee <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Loose leaf tea <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Local dairy <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Cotswolds honey <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Sourdough <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Mushroom coffee <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Gelato <svg class="ico"><use href="#leaf"/></svg></span>
+      </div>
     </div>
   </div>
 
-  <figure class="shot">
-    <span class="parwrap"><img class="par" src="img/hero.jpg" width="1448" height="1086" alt="The OrNature Cafe shopfront: a pale timber frontage under a green awning, a juice bar window stacked with citrus and herbs, a chilled cabinet of cold-pressed bottles and salads, and planting trailing down either side of the fascia." fetchpriority="high"></span>
-    <figcaption>What we are building towards. Cold-pressed juices, organic coffee and herbal teas on the fascia, a juice bar in one window and the food cabinet in the other, because that is the order people read a shopfront in.</figcaption>
-  </figure>
-
-  <section id="ground">
+  <section class="statement" id="statement">
     <div class="wrap">
-      <div class="head">
-        <h2>We have been standing on the pavement</h2>
-        <p class="aside">Before the money and before the lease. Counting covers outside shops that already work.</p>
-      </div>
-      <p class="intro">Darren Leech, our director, has spent the summer doing the unglamorous part: sitting outside other people&rsquo;s cafes on ordinary weekdays, counting how many tables turn and watching what people actually carry out of the door. Everything further down this page comes out of those mornings.</p>
+      <p class="big-words" data-words>Everything on the shelf goes back to a field <em>we have stood in.</em></p>
+    </div>
+  </section>
 
-      <div class="duo" style="margin-top:clamp(40px,5vw,64px)">
-        <div class="media media-pair">
-          <span class="framed"><img src="img/darren-street.jpg" width="1500" height="1125" alt="Darren Leech standing on King Street, with the Bonne Bouche patisserie behind him and shoppers passing on the pavement." loading="eager"></span>
-          <span class="framed"><img src="img/darren.jpg" width="1500" height="1125" alt="Darren Leech in front of the same patisserie, with every pavement table behind him taken at mid-morning." loading="eager"></span>
-        </div>
-        <div class="txt">
-          <span class="kicker">Note 01 &middot; King Street</span>
-          <h3>Counting covers outside somebody else&rsquo;s shop</h3>
-          <p>The patisserie behind Darren has been trading since 1952, and every pavement table was taken before eleven on a working Tuesday. That answers the question we actually needed answering: a good street will carry a full price food counter on an ordinary day, with no event on and nothing to draw a crowd.</p>
-          <p>The opening is not whether people will stop. It is what is in the cabinet when they do. Almost nobody on a street like this is selling raw juice, live yoghurt and a grocery shelf off the same till.</p>
-        </div>
+  <section class="sec" id="story" style="padding-top:clamp(40px,5vw,70px)">
+    <div class="wrap story-grid">
+      <div>
+        <span class="label" data-reveal>The groundwork</span>
+        <h2 class="h" data-split>It starts on <em>the pavement.</em></h2>
+        <p class="lead" data-reveal>Darren Leech, our director, has been out counting tables on ordinary weekdays. On King Street, every one was taken by eleven.</p>
+        <a class="link-arrow" href="#towns" data-reveal>See where we&rsquo;re looking <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
-
-      <div class="duo flip">
-        <div class="txt">
-          <span class="kicker">Note 02 &middot; The drive time</span>
-          <h3>Twenty minutes is the real catchment</h3>
-          <p>The other half of the work is done in the car. A shop selling milk, juice and muesli on a weekly repeat lives off the people who will drive twenty minutes to it, not off the ones inside a council boundary drawn on a map.</p>
-          <p>So the shortlist got tested the slow way, town by town, on weekdays in term time rather than on an August Saturday when everywhere looks busy.</p>
-        </div>
-        <figure class="framed media">
-          <img src="img/darren-blenheim.jpg" width="1500" height="1126" alt="Darren Leech beside the lake at Blenheim on a site-visit day in Oxfordshire." loading="lazy">
+      <div class="collage">
+        <figure class="c1" data-speed="-0.05">
+          <div class="ph" data-reveal="clip"><img src="img/darren-street.jpg" width="1500" height="1125" alt="Darren Leech on King Street, with the Bonne Bouche patisserie across the road behind him." loading="lazy"></div>
+          <figcaption class="tag">King Street</figcaption>
+        </figure>
+        <figure class="c2" data-speed="0.07">
+          <div class="ph" data-reveal="clip" style="--i:1"><img src="img/darren.jpg" width="1500" height="1125" alt="Darren Leech in front of the patisserie's pavement terrace, with every table taken." loading="lazy"></div>
+          <figcaption class="tag">Full by 11am</figcaption>
+        </figure>
+        <figure class="c3" data-speed="-0.02">
+          <div class="ph" data-reveal="clip" style="--i:2"><img src="img/darren-blenheim.jpg" width="1500" height="1126" alt="Darren Leech beside the lake at Blenheim on a site visit." loading="lazy"></div>
+          <figcaption class="tag">Site visit, Blenheim</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <figure class="panorama">
-    <img src="img/place/cotswolds.jpg" width="2400" height="696" alt="A wide view across Cotswolds farmland: a field edged with poppies, a pale blue flax crop beyond it, woodland along the ridge and a stone cottage at the end of the lane." loading="lazy">
-    <figcaption>The catchment. About 139,000 permanent residents live across the wider Cotswolds National Landscape, before a single visitor is counted.</figcaption>
-  </figure>
-
-  <section id="where" class="band">
+  <section class="band">
+    <div class="band-bg" data-speed="0.12"><img src="img/place/cotswolds.jpg" width="2400" height="696" alt="" loading="lazy"></div>
+    <div class="band-shade"></div>
     <div class="wrap">
-      <div class="head">
-        <h2>Where the first one goes</h2>
-        <p class="aside">Ranked on year-round trade rather than on how well the town photographs.</p>
-      </div>
-      <p class="intro">The pretty towns are not the strong ones. Stow-on-the-Wold and Moreton-in-Marsh trade hard in August and go quiet in February, which is no use to a shop selling milk and juice on a weekly repeat. So we ranked the shortlist on resident base first and visitor spend second.</p>
-
-      <div class="trio">
-        <figure>
-          <span class="framed"><img src="img/place/cirencester.jpg" width="1500" height="1000" alt="The Market Place in Cirencester, with the tower of the parish church rising above a curve of painted shopfronts." loading="lazy"></span>
-          <figcaption><span class="where">Cirencester &middot; 20,229 residents</span>The largest town inside the Cotswolds proper, with a market place that works as a room rather than as a road.</figcaption>
-        </figure>
-        <figure>
-          <span class="framed"><img src="img/place/witney.jpg" width="1500" height="1000" alt="The Market Square in Witney under plane trees, with fallen leaves across the square and shops around its edge." loading="lazy"></span>
-          <figcaption><span class="where">Witney &middot; 31,200 residents</span>The largest town on the list, and the one least dependent on anybody being on holiday.</figcaption>
-        </figure>
-        <figure>
-          <span class="framed"><img src="img/place/tetbury.jpg" width="1500" height="1000" alt="Long Street in Tetbury seen from under the market cross, bunting strung across the road and customers at pavement tables outside the shops." loading="lazy"></span>
-          <figcaption><span class="where">Tetbury &middot; the format</span>Pavement tables in use on a weekday, on a street narrow enough that the trade stays on one side of it.</figcaption>
-        </figure>
-      </div>
-
-      <div class="duo" style="margin-top:clamp(48px,6vw,80px)">
-        <figure class="framed media">
-          <img src="img/place/stow.jpg" width="1500" height="1000" alt="The Market Square at Stow-on-the-Wold on a grey day: the market cross, parked cars and stone shopfronts, with almost nobody about." loading="lazy">
-        </figure>
-        <div class="txt">
-          <span class="kicker">The one we ruled out</span>
-          <h3>Beautiful in August, empty in February</h3>
-          <p>This is Stow-on-the-Wold on an ordinary day out of season, and it is the clearest argument in the whole study. The square is one of the best looking in England, and it will not carry a seven day counter on resident trade alone.</p>
-          <p>Stroud, at 13,468 in the parish, sits inside a much larger connected urban area, which makes it commercially stronger than the raw number suggests. It was named one of the best places to live in the UK for 2026 by The Times.</p>
-          <div class="scroller">
-            <table class="data">
-              <caption>Shortlist, ranked on year-round trade</caption>
-              <thead><tr><th>Town</th><th>Year-round trade</th></tr></thead>
-              <tbody>
-                <tr><td>Cheltenham</td><td>Excellent</td></tr>
-                <tr><td>Witney</td><td>Excellent</td></tr>
-                <tr><td>Cirencester</td><td>Strong</td></tr>
-                <tr><td>Stroud</td><td>Strong</td></tr>
-                <tr><td>Chipping Norton</td><td>Medium</td></tr>
-                <tr><td>Tetbury</td><td>Medium</td></tr>
-                <tr><td>Moreton-in-Marsh</td><td>Medium to low</td></tr>
-                <tr><td>Stow-on-the-Wold</td><td>Low</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <h2 class="h" data-split>Built for the people who <em>live here.</em></h2>
+      <div class="stats" data-stagger>
+        <div class="stat" data-reveal><b data-count="139000">139,000</b><span>residents across the Cotswolds National Landscape</span></div>
+        <div class="stat" data-reveal><b data-count="8">8</b><span>towns on the shortlist</span></div>
+        <div class="stat" data-reveal><b data-count="10">10</b><span>products in the range</span></div>
+        <div class="stat" data-reveal><b data-count="4">4</b><span>suppliers in the plan</span></div>
       </div>
     </div>
   </section>
 
-  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path d="M0 34C240 6 420 62 720 42S1200 4 1440 30V0H0Z" fill="#E3BE62" opacity=".75"/>
-    <path d="M0 52C260 24 430 76 720 58s470-32 720-8V22C1200 0 960 40 720 56S260 20 0 40Z" fill="#9BB79F" opacity=".7"/>
-    <path d="M0 80V46C250 22 470 78 760 60s450-28 680-10v30Z" fill="#EEE7DA"/>
-  </svg>
-
-  <section id="collection" class="band">
-    <div class="wrap">
-      <div class="head">
-        <h2>The Master Collection</h2>
-        <p class="aside">Ten products. Every one of them either pressed, milled or bottled to order rather than bought in finished.</p>
-      </div>
-      <p class="intro">We started with the things people buy every week rather than the things that photograph well. Juice, milk, honey, muesli, tea. If we cannot name the farm or the mill behind a product, it does not go on the shelf, and the range stays this size until we can.</p>
-
-      <figure class="shot" style="width:auto;margin-top:clamp(34px,4vw,52px)">
-        <span class="framed" style="display:block"><img src="img/collection.jpg" width="1600" height="800" alt="The OrNature Master Collection lined up on a stone counter: cold-pressed juice, local dairy milk, Cotswolds honey, spices, muesli, natural yoghurt, gelato, mushroom coffee powder, herbal tea and spring water." loading="lazy"></span>
-        <figcaption>The Master Collection. Ten products, one supply chain, every label naming what is in the pack and where it came from.</figcaption>
-      </figure>
-
-      <div class="range">
-        <div class="item">
-          <h3>Cold-Pressed Juice</h3>
-          <p>Raw and unpasteurised, pressed in small batches and into the chiller the same day. Glass bottle, no added sugar, drink it fresh.</p>
-          <span class="size">250ml glass</span>
-        </div>
-        <div class="item">
-          <h3>Local Dairy Milk</h3>
-          <p>Whole milk from a herd close enough to drive to before breakfast, in a returnable bottle you bring back for the next one.</p>
-          <span class="size">1 litre</span>
-        </div>
-        <div class="item">
-          <h3>Cotswolds Honey</h3>
-          <p>Small batch, raw, and set by the season rather than by a recipe. It changes through the year because the forage does.</p>
-        </div>
-        <div class="item">
-          <h3>Spices</h3>
-          <p>Whole and ground, in a kraft pouch with a window, so you can see the colour before you pay for it.</p>
-        </div>
-        <div class="item">
-          <h3>Wholefood Muesli</h3>
-          <p>Apple, berry and seed. Rolled oats, no refined sugar, nothing in there to make it stick together.</p>
-        </div>
-        <div class="item">
-          <h3>Natural Yoghurt</h3>
-          <p>Set thick with live cultures and the same milk that goes in the bottles. Two ingredients on the pot.</p>
-        </div>
-        <div class="item">
-          <h3>Gelato</h3>
-          <p>Churned slow with the local dairy, so it tastes of the milk rather than of the flavouring.</p>
-        </div>
-        <div class="item">
-          <h3>Mushroom Coffee Powder</h3>
-          <p>A functional blend of lion&rsquo;s mane, reishi and chaga with cacao and turmeric. Stir it into hot water or milk.</p>
-          <span class="size">200g</span>
-        </div>
-        <div class="item">
-          <h3>Herbal Tea</h3>
-          <p>Loose leaf, six blends, sold by the caddy. There is a strainer next to the box because we do not use bags.</p>
-        </div>
-        <div class="item">
-          <h3>Spring Water</h3>
-          <p>Still, in glass rather than plastic, with a cap that seals well enough to carry in a bag.</p>
-        </div>
-      </div>
-
-      <div class="duo">
-        <figure class="framed media">
-          <img src="img/tea.jpg" width="1536" height="1024" alt="The OrNature Detox herbal tea collection: a green presentation box holding six glass caddies of loose leaf blends, beside a teapot, a cup and a small strainer." loading="lazy">
-        </figure>
-        <div class="txt">
-          <span class="kicker">Six blends, no bags</span>
-          <h3>The Detox Collection</h3>
-          <p>Six loose leaf blends in glass, in a box you keep. We took the decision early not to sell tea bags: the leaf is bigger, the infusion is cleaner, and there is no bleached paper or staple to throw away afterwards.</p>
-          <p>Every box ships with a strainer, and the counter sells the pot and the cup to go with it, so nobody has to work out the kit themselves.</p>
-        </div>
-      </div>
-
-      <div class="duo flip">
-        <div class="txt">
-          <span class="kicker">First off the line</span>
-          <h3>The one we made first</h3>
-          <p>This is the first OrNature product to come back from the filler, photographed on a pub table twenty minutes after we opened the box. Two hundred grams of lion&rsquo;s mane, reishi and chaga, with cacao and turmeric to make it drinkable without milk.</p>
-          <p>We checked the fill weight, the seal and the print, then drank one. The label has had two small changes since.</p>
-        </div>
-        <figure class="framed media portrait">
-          <img src="img/mushroom.jpg" width="766" height="1055" alt="A 200g tub of OrNature Mushroom Coffee Powder, functional mushroom blend with lion's mane, reishi and chaga, photographed on a wooden table." loading="lazy">
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="shop">
-    <div class="wrap">
-      <div class="head">
-        <h2>The shop</h2>
-        <p class="aside">A juice bar at the front, a food counter down the middle, and the grocery range on the wall behind it.</p>
-      </div>
-      <p class="intro">One room doing three jobs. You can come in for a coffee and leave in four minutes, sit down for a bowl at lunch, or fill a bag with the week&rsquo;s milk, muesli and honey on the way home. The point of putting all three under one roof is that the second visit costs the customer nothing to make.</p>
-
-      <figure class="shot" style="width:auto;margin-top:clamp(38px,5vw,56px)">
-        <span class="framed" style="display:block"><img src="img/terrace.jpg" width="1500" height="1125" alt="The pavement terrace outside a long established patisserie, every table taken at mid-morning on an ordinary weekday." loading="lazy"></span>
-        <figcaption>Somebody else&rsquo;s street, photographed at eleven on a Tuesday: twelve covers on the pavement, a bakery counter inside, and a queue that never blocks the door. This is the trade we are aiming at, and the reason we think the format works.</figcaption>
-      </figure>
-
-      <p class="intro" style="margin-top:clamp(30px,4vw,44px)">We are not trying to create demand on a quiet street. We are looking for a street where the demand is already sitting outside in the sun, and putting a better cabinet on it. Banquette seating down one side, a long run of counter down the other, the retail wall at the back, and nothing in the room more than a few steps from the till.</p>
-
-      <ul class="board">
-        <li><span class="name">Cold-pressed juice</span><span class="note">Seven pressings, changed with what the growers have. Green Reset, Citrus and Roots, Garden Balance</span><span class="price">£5.50</span></li>
-        <li><span class="name">Smoothies</span><span class="note">Whole fruit, oat or dairy, no syrups and no powdered base</span><span class="price">£6.00</span></li>
-        <li><span class="name">Bowls and salads</span><span class="note">Made in the kitchen each morning, sold until they run out</span><span class="price">£8.50</span></li>
-        <li><span class="name">Organic coffee</span><span class="note">Single origin, ground per cup, with oat, whole or the local dairy</span><span class="price">£3.40</span></li>
-        <li><span class="name">Herbal tea</span><span class="note">Loose leaf from the caddies, brewed in a pot with a strainer</span><span class="price">£3.60</span></li>
-        <li><span class="name">Bakery</span><span class="note">Sourdough, seeded health bread and rye, baked fresh every day</span><span class="price">from £3</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="notes" class="band">
-    <div class="wrap">
-      <div class="head">
-        <h2>Field notes</h2>
-        <p class="aside">What has to be in the cabinet on day one, and who has to deliver it. Written up as we go.</p>
-      </div>
-      <p class="intro">We would rather show the working than publish a launch date. The siting notes are further up the page; these are the ones about what has to be in the cabinet on day one, and who has to deliver it.</p>
-
-      <div class="note-grid">
-
-        <article class="note-entry">
-          <div class="media">
-            <span class="framed"><img src="img/place/market.jpg" width="1500" height="1125" alt="A busy farmers' market filling a Gloucestershire street: canopied stalls down both sides, blackboards of prices and shoppers with bags between them." loading="lazy"></span>
-          </div>
-          <div class="txt">
-            <span class="dateline">Note 03 &middot; Market day</span>
-            <h3>The habit already exists here</h3>
-            <p>The thing a new food shop usually has to pay for is the habit. In these towns it is already there: a farmers&rsquo; market that fills the street, a queue at the bread stall, and a population that will happily carry a bag home rather than have it delivered in a van.</p>
-            <p>That matters more to us than footfall on a Saturday. It means the grocery half of the shop is not an experiment. We are asking people to buy milk, juice and muesli in a way they are already buying vegetables, on a day of the week they have already set aside.</p>
-          </div>
-        </article>
-
-        <article class="note-entry flip">
-          <div class="media">
-            <span class="framed"><img src="img/place/apples.jpg" width="1500" height="1000" alt="Wicker trays of apples at a Gloucestershire market stall, each variety in its own hand-labelled compartment: Ashmead's Kernel, Gloucester Royal, Ribston Pippin and dozens more." loading="lazy"></span>
-          </div>
-          <div class="txt">
-            <span class="dateline">Note 04 &middot; Provenance</span>
-            <h3>Somebody here already labels every variety</h3>
-            <p>This is one stall at one market, and every tray on it is named: Ashmead&rsquo;s Kernel, Gloucester Royal, Dymock Red, Longney Russet. Most of them are Gloucestershire varieties that no supermarket will ever list.</p>
-            <p>We took it as the standard to work to rather than as decoration. If a grower can tell you the village a variety came from, we can print the farm on a bottle. Anything we cannot name that precisely does not go on the shelf.</p>
-          </div>
-        </article>
-
-        <article class="note-entry">
-          <div class="media">
-            <div class="scroller">
-              <table class="data">
-                <caption>Supply structure</caption>
-                <thead><tr><th>Role</th><th>Supplier</th></tr></thead>
-                <tbody>
-                  <tr><td>Local seasonal vegetables, herbs and soft fruit</td><td>Abbey Home Farm</td></tr>
-                  <tr><td>Daily core supply and imported organic fruit</td><td>Fresh Direct</td></tr>
-                  <tr><td>Organic backup and regional crops</td><td>The Community Farm</td></tr>
-                  <tr><td>Emergency Cheltenham top-ups</td><td>Roots &amp; Fruits</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="txt">
-            <span class="dateline">Note 05 &middot; Supply</span>
-            <h3>Four suppliers, so a bad week is never a closed counter</h3>
-            <p>A juice bar lives or dies on produce arriving. One organic wholesaler covers the daily core and the fruit we cannot grow here; a local organic farm covers seasonal veg, herbs and soft fruit; a third sits behind both as backup; and a Cheltenham wholesaler is close enough for a same-day run when something fails.</p>
-            <p>On the claims side we have made one deliberate edit. We do not say &ldquo;non-toxic fruit and veg&rdquo;, because organic certification restricts synthetic pesticides rather than proving their absence. What we will say is that everything is made daily from certified organic fruit and vegetables, carefully sourced for quality and traceability, with batch traceability and periodic independent residue testing behind it.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="market" class="dark">
-    <div class="wrap">
-      <div class="head">
-        <h2>The market we are opening into</h2>
-        <p class="aside">Figures we are planning against, from the 2021 Census and the Cotswolds National Landscape.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><b data-count="139000" data-suffix="">139,000</b><span>Permanent residents across the wider Cotswolds National Landscape, before a single visitor is counted.</span></div>
-        <div class="stat"><b data-count="800" data-suffix="">800</b><span>Square miles of protected landscape, running from Warwickshire and Worcestershire down to Bath and Wiltshire.</span></div>
-        <div class="stat"><b data-count="20229" data-suffix="">20,229</b><span>Residents in Cirencester at the 2021 Census, the largest town inside the Cotswolds.</span></div>
-      </div>
-      <p class="intro" style="color:rgba(247,243,235,.78)">The Cotswold District on its own recorded about 91,125 residents in 2021. We plan against the wider figure because the catchment that matters to a shop is the one people will drive twenty minutes from, not the one drawn by a council boundary.</p>
-    </div>
-  </section>
-
-  <section id="sourcing">
-    <div class="wrap">
-      <div class="head">
-        <h2>How it gets made</h2>
-        <p class="aside">Four steps between the field and the fridge, and nothing in between that we cannot show you.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <h3>Grown</h3>
-          <p>Certified organic growers, most of them close enough to visit in a morning. Seasonal lines change when the field does.</p>
-        </div>
-        <div class="step">
-          <h3>Pressed</h3>
-          <p>Cold pressed and bottled in small batches. No pasteurising, no concentrate, no water added to stretch it.</p>
-        </div>
-        <div class="step">
-          <h3>Tested</h3>
-          <p>Batch traceability on every run, with periodic independent residue and microbiological testing. Certificates on request.</p>
-        </div>
-        <div class="step">
-          <h3>Returned</h3>
-          <p>Glass over plastic wherever it works. Bring the milk bottle and the tea caddy back and we will refill them.</p>
-        </div>
-      </div>
-
-      <div class="duo flip" style="margin-top:clamp(52px,6vw,88px)">
-        <div class="txt">
-          <span class="kicker">Close enough to visit in a morning</span>
-          <h3>The ground it comes off</h3>
-          <p>Cotswold brash is thin, free draining limestone soil, which is why this is sheep and barley country rather than orchard country. It decides what we can honestly call local: leaves, roots, herbs and soft fruit from growers up the road, and the fruit that will not ripen here bought in openly from a certified organic wholesaler rather than dressed up as something it is not.</p>
-        </div>
-        <figure class="framed media">
-          <img src="img/place/drystone.jpg" width="1500" height="1000" alt="A Cotswold drystone wall running along the edge of a ploughed field towards woodland, built from pale local limestone." loading="lazy">
-        </figure>
-      </div>
-
-      <div class="duo" style="margin-top:clamp(52px,6vw,88px)">
-        <figure class="framed media portrait">
-          <img src="img/water.jpg" width="854" height="1024" alt="A glass bottle of OrNature spring water photographed mid-splash in a studio." loading="lazy">
-        </figure>
-        <div class="txt">
-          <span class="kicker">Glass, not plastic</span>
-          <h3>The packaging decision</h3>
-          <p>Glass costs more to buy, more to ship and more to break. We took it anyway on the lines where it changes the product: water, milk, juice and the tea caddies. Everything dry goes into kraft pouches with a window, because a pouch that shows the contents sells better than a printed picture of them.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="visit" class="dark">
-    <div class="wrap">
-      <div class="head">
-        <h2>Come in, or have it sent</h2>
-        <p class="aside">The first shop opens in the Cotswolds. Delivery follows across Gloucestershire and Oxfordshire.</p>
-      </div>
-      <div class="cols" style="margin-top:34px">
+  <section class="towns" id="towns">
+    <div class="towns-sticky">
+      <div class="wrap sec-head">
         <div>
-          <figure class="framed">
-            <img src="img/place/tetbury.jpg" width="1500" height="1000" alt="Long Street in Tetbury with bunting across the road and customers at pavement tables outside the shops." loading="lazy">
-          </figure>
-          <p class="cap" style="color:rgba(247,243,235,.7)">A Cotswolds high street on an ordinary weekday. This is the kind of frontage we are looking for: pavement wide enough for tables, and a door people already walk past twice a day.</p>
+          <span class="label" data-reveal>Where</span>
+          <h2 class="h" data-split>Picking <em>the town.</em></h2>
         </div>
-        <div>
-          <p>The counter is open seven days. The grocery range ships across Gloucestershire and Oxfordshire, and you can set the milk, the juice and the muesli to repeat weekly so the basics arrive without you thinking about it.</p>
-          <ul class="hours">
-            <li><span>Monday to Friday</span><span>7:30 to 18:00</span></li>
-            <li><span>Saturday</span><span>8:00 to 18:00</span></li>
-            <li><span>Sunday</span><span>9:00 to 16:00</span></li>
-            <li><span>Juice bar</span><span>Until 17:00 daily</span></li>
+        <p class="lead" data-reveal>Ranked on year-round trade, not on busy August weekends.</p>
+      </div>
+      <div class="towns-track" id="track">
+        <article class="town">
+          <img src="img/place/witney.jpg" width="1500" height="1000" alt="The Market Square in Witney under plane trees, with autumn leaves across the square." loading="lazy">
+          <div class="town-meta"><span class="rank r-ex">Excellent</span><h3>Witney</h3><p>31,200 people. The largest town on the shortlist.</p></div>
+        </article>
+        <article class="town">
+          <img src="img/place/cirencester.jpg" width="1500" height="1000" alt="Cirencester Market Place, with the parish church tower above a row of painted shopfronts." loading="lazy">
+          <div class="town-meta"><span class="rank r-st">Strong</span><h3>Cirencester</h3><p>20,229 residents. The largest town inside the Cotswolds.</p></div>
+        </article>
+        <article class="town">
+          <img src="img/place/market.jpg" width="1500" height="1125" alt="Stroud farmers' market filling the street, with stalls down both sides and shoppers between them." loading="lazy">
+          <div class="town-meta"><span class="rank r-st">Strong</span><h3>Stroud</h3><p>Named one of the best places to live in the UK for 2026 by The Times.</p></div>
+        </article>
+        <article class="town">
+          <img src="img/place/tetbury.jpg" width="1500" height="1000" alt="Long Street in Tetbury seen from under the market cross, with bunting across the road." loading="lazy">
+          <div class="town-meta"><span class="rank">Medium</span><h3>Tetbury</h3><p>Pavement tables, and a smaller resident base.</p></div>
+        </article>
+        <article class="town">
+          <img src="img/place/stow.jpg" width="1500" height="1000" alt="The market square at Stow-on-the-Wold in evening sun, with the market cross in front of honey-coloured stone buildings." loading="lazy" style="object-position:82% 50%">
+          <div class="town-meta"><span class="rank">Low</span><h3>Stow-on-the-Wold</h3><p>Busy in August. Quiet in February.</p></div>
+        </article>
+        <article class="town town-end">
+          <span class="rank">Also ranked</span>
+          <ul class="also">
+            <li><b>Cheltenham</b><span>Excellent</span></li>
+            <li><b>Chipping Norton</b><span>Medium</span></li>
+            <li><b>Moreton-in-Marsh</b><span>Medium to low</span></li>
           </ul>
-          <div class="actions">
-            <a class="btn" href="mailto:contact@ornature-wellness.com">Start a weekly delivery</a>
-          </div>
-          <div class="partner">
-            Sites, stockists and investors: <a href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com</a>
-          </div>
+        </article>
+      </div>
+      <div class="wrap"><div class="towns-progress" aria-hidden="true"><i id="tprog"></i></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="range">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label" data-reveal>The range</span>
+          <h2 class="h" data-split>Ten products. <em>One supply chain.</em></h2>
+        </div>
+        <p class="lead" data-reveal>If we can&rsquo;t name the farm or the mill, it doesn&rsquo;t go on the shelf.</p>
+      </div>
+      <div class="bento" data-stagger>
+        <figure class="tile t-big" data-reveal>
+          <img src="img/collection.jpg" width="1600" height="800" alt="The OrNature Master Collection lined up on a stone counter: juice, milk, honey, spices, muesli, yoghurt, gelato, mushroom coffee, herbal tea and spring water." loading="lazy">
+          <figcaption><b>The Master Collection</b><span>From cold-pressed juice to spring water, in glass and kraft.</span></figcaption>
+        </figure>
+        <figure class="tile t-tall" data-reveal>
+          <img src="img/mushroom.jpg" width="766" height="1055" alt="A 200g tub of OrNature Mushroom Coffee Powder on a wooden table." loading="lazy">
+          <figcaption><b>Mushroom coffee</b><span>First off the line.</span></figcaption>
+        </figure>
+        <figure class="tile t-a" data-reveal>
+          <img src="img/tea.jpg" width="1536" height="1024" alt="The OrNature Detox herbal tea box with six glass caddies of loose leaf blends." loading="lazy">
+          <figcaption><b>Detox tea</b><span>Six loose leaf blends. No bags.</span></figcaption>
+        </figure>
+        <figure class="tile t-b" data-reveal>
+          <img src="img/place/apples.jpg" width="1500" height="1000" alt="Trays of hand-labelled Gloucestershire apple varieties on a market stall." loading="lazy">
+          <figcaption><b>Named at source</b><span>Gloucestershire apple varieties at Stroud market.</span></figcaption>
+        </figure>
+        <div class="tile t-list" data-reveal>
+          <h3>In the range</h3>
+          <ul class="chips">
+            <li>Cold-pressed juice</li><li>Local dairy milk</li><li>Cotswolds honey</li><li>Spices</li><li>Wholefood muesli</li>
+            <li>Natural yoghurt</li><li>Gelato</li><li>Mushroom coffee</li><li>Herbal tea</li><li>Spring water</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="source" id="source">
+    <div class="source-bg" data-speed="0.12"><img src="img/place/drystone.jpg" width="1500" height="1000" alt="" loading="lazy"></div>
+    <div class="source-shade"></div>
+    <div class="wrap">
+      <span class="label" data-reveal>Sourcing</span>
+      <h2 class="h" data-split>From the field <em>to the fridge.</em></h2>
+      <ol class="steps" data-stagger>
+        <li data-reveal><h3>Grown</h3><p>Certified organic, mostly from growers close enough to visit.</p></li>
+        <li data-reveal><h3>Pressed</h3><p>Cold pressed in small batches. No concentrate, nothing added.</p></li>
+        <li data-reveal><h3>Tested</h3><p>Batch traceability and independent residue testing.</p></li>
+        <li data-reveal><h3>Returned</h3><p>Glass bottles and tea caddies, refilled when you bring them back.</p></li>
+      </ol>
+      <p class="partners" data-reveal><span class="label">In the supply plan</span>Abbey Home Farm <span aria-hidden="true">&middot;</span> Fresh Direct <span aria-hidden="true">&middot;</span> The Community Farm <span aria-hidden="true">&middot;</span> Roots &amp; Fruits</p>
+    </div>
+  </section>
+
+  <section class="sec format" id="format">
+    <div class="wrap format-grid">
+      <figure class="format-img">
+        <div class="ph" data-reveal="clip"><img src="img/terrace.jpg" width="1500" height="1125" alt="A busy pavement terrace outside a patisserie on a weekday morning, every table taken." loading="lazy"></div>
+        <figcaption data-reveal>Someone else&rsquo;s terrace at 11am on a weekday. The trade we&rsquo;re aiming for.</figcaption>
+      </figure>
+      <div>
+        <span class="label" data-reveal>The format</span>
+        <h2 class="h" data-split>Juice bar.<br>Cafe.<br><em>Grocery shelf.</em></h2>
+        <p class="lead" data-reveal>One room, used twice a day. Coffee on the way in, milk and muesli on the way home.</p>
+        <div class="menu" data-reveal>
+          <span class="menu-label">Planned menu</span>
+          <ul>
+            <li><span class="n">Cold-pressed juice</span><span class="dots"></span><span class="p">&pound;5.50</span></li>
+            <li><span class="n">Smoothies</span><span class="dots"></span><span class="p">&pound;6.00</span></li>
+            <li><span class="n">Bowls and salads</span><span class="dots"></span><span class="p">&pound;8.50</span></li>
+            <li><span class="n">Organic coffee</span><span class="dots"></span><span class="p">&pound;3.40</span></li>
+            <li><span class="n">Herbal tea</span><span class="dots"></span><span class="p">&pound;3.60</span></li>
+            <li><span class="n">Bakery</span><span class="dots"></span><span class="p">from &pound;3</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="cta-title" data-split>Coming to <em>the Cotswolds.</em></h2>
+      <p data-reveal>Sites, stockists and investors, or just want to hear when the doors open?</p>
+      <div class="actions" data-reveal>
+        <a class="btn btn-gold magnetic" href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
+      </div>
+      <p class="fine" data-reveal>Delivery to follow across Gloucestershire and Oxfordshire.</p>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <span>OrNature. Cold-pressed juice, organic grocery and a Cotswolds cafe.</span>
-    <span><a href="https://www.ornature-wellness.com">ornature-wellness.com</a> &nbsp;/&nbsp; <a href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com</a></span>
+<footer class="foot">
+  <div class="wrap foot-top">
+    <a class="mark" href="#top" aria-label="OrNature, back to top"><img src="img/logo.png" width="1200" height="319" alt="OrNature" loading="lazy"></a>
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#towns">Towns</a></li>
+      <li><a href="#range">Range</a></li>
+      <li><a href="#source">Sourcing</a></li>
+      <li><a href="https://www.ornature-wellness.com">ornature-wellness.com</a></li>
+    </ul>
   </div>
   <div class="wrap">
     <p class="credits">
-      Location photography, reused under Creative Commons and credited to the photographers:
+      Location photography under Creative Commons:
       Cotswolds panorama &copy; <a href="https://commons.wikimedia.org/wiki/File:Flax-poppy-cotswolds.jpg">Saffron Blaze</a>, CC BY-SA 3.0.
-      Cirencester Market Place &copy; <a href="https://commons.wikimedia.org/wiki/File:Market_Place,_Cirencester_-_geograph.org.uk_-_5877603.jpg">Bill Boaden</a>,
-      Witney Market Square &copy; <a href="https://commons.wikimedia.org/wiki/File:The_Market_Square_in_Witney_-_geograph.org.uk_-_7936545.jpg">Steve Daniels</a>,
-      Long Street, Tetbury &copy; <a href="https://commons.wikimedia.org/wiki/File:Long_Street_from_Market_Cross,_Tetbury,_Gloucestershire_2015_-_geograph.org.uk_-_5845964.jpg">Ray Bird</a>,
+      Cirencester &copy; <a href="https://commons.wikimedia.org/wiki/File:Market_Place,_Cirencester_-_geograph.org.uk_-_5877603.jpg">Bill Boaden</a>,
+      Witney &copy; <a href="https://commons.wikimedia.org/wiki/File:The_Market_Square_in_Witney_-_geograph.org.uk_-_7936545.jpg">Steve Daniels</a>,
+      Tetbury &copy; <a href="https://commons.wikimedia.org/wiki/File:Long_Street_from_Market_Cross,_Tetbury,_Gloucestershire_2015_-_geograph.org.uk_-_5845964.jpg">Ray Bird</a>,
       Stow-on-the-Wold &copy; <a href="https://commons.wikimedia.org/wiki/File:Market_Square,_Stow-on-the-Wold_-_geograph.org.uk_-_5140279.jpg">David Yap</a> and
-      Cotswold drystone wall &copy; <a href="https://commons.wikimedia.org/wiki/File:Cotswold_drystone_wall_near_Cutsdean_-_geograph.org.uk_-_3930461.jpg">Roger Davies</a>, all CC BY-SA 2.0 via Geograph.
-      Apple varieties &copy; <a href="https://commons.wikimedia.org/wiki/File:Stroud_Farmers%27_Market_..._apple_selection._-_Flickr_-_BazzaDaRambler.jpg">BazzaDaRambler</a>, CC BY 2.0.
-      Farmers&rsquo; market by <a href="https://commons.wikimedia.org/wiki/File:Farmers%27_market,_Stroud.jpg">Jongleur100</a>, public domain.
-      The shop and product images are our own visualisations of a range still in development.
+      drystone wall &copy; <a href="https://commons.wikimedia.org/wiki/File:Cotswold_drystone_wall_near_Cutsdean_-_geograph.org.uk_-_3930461.jpg">Roger Davies</a>, CC BY-SA 2.0 via Geograph.
+      Apples &copy; <a href="https://commons.wikimedia.org/wiki/File:Stroud_Farmers%27_Market_..._apple_selection._-_Flickr_-_BazzaDaRambler.jpg">BazzaDaRambler</a>, CC BY 2.0.
+      Stroud farmers&rsquo; market by <a href="https://commons.wikimedia.org/wiki/File:Farmers%27_market,_Stroud.jpg">Jongleur100</a>, public domain.
+      Shopfront and product images are visualisations of plans still in development.
     </p>
   </div>
 </footer>
 
 <script>
 (function(){
+  var root = document.documentElement, body = document.body;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var body   = document.body;
-  var loader = document.getElementById('loader');
-  var header = document.querySelector('header');
-  var pbar   = document.getElementById('pbar');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function $(s, c){ return (c || document).querySelector(s); }
+  function $$(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
 
-  body.classList.add('loading');
-
-  /* ---- prepare the reveals ---- */
-  var pending = [];
-  function prep(scopeSel, sel, step, attr){
-    Array.prototype.forEach.call(document.querySelectorAll(scopeSel), function(scope){
-      Array.prototype.forEach.call(scope.querySelectorAll(sel), function(el, i){
-        el.setAttribute(attr || 'data-anim', '');
-        if(step) el.style.setProperty('--d', (i * step) + 'ms');
-        pending.push(el);
+  /* ---- split text into words ---- */
+  function split(el, cls, masked){
+    var n = 0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(ch){
+        if(ch.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part) return;
+            if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span');
+            w.className = cls;
+            if(masked){
+              var inner = document.createElement('span');
+              inner.textContent = part;
+              inner.style.setProperty('--i', n);
+              w.appendChild(inner);
+            } else {
+              w.textContent = part;
+            }
+            n++;
+            frag.appendChild(w);
+          });
+          node.replaceChild(frag, ch);
+        } else if(ch.nodeType === 1 && ch.tagName !== 'BR'){
+          walk(ch);
+        }
       });
-    });
+    })(el);
   }
-  if(!reduce){
-    prep('.hero',      'h1, .lede, .actions',            130);
-    prep('main',       '.shot',                            0);
-    prep('section',    '.head h2, .head .aside, .intro',  90);
-    prep('#collection','.item',                           45);
-    prep('main',       '.duo .txt',                        0);
-    prep('main',       '.duo .media',                      0, 'data-wipe');
-    prep('main',       '.panorama',                        0, 'data-wipe');
-    prep('.trio',      'figure',                         120);
-    prep('.board',     'li',                              65);
-    prep('#notes',     '.note-entry .txt',                 0);
-    prep('#notes',     '.note-entry .media',               0, 'data-wipe');
-    prep('#market',    '.stat',                          140);
-    prep('.steps',     '.step',                          110);
-    prep('#visit',     '.cols > div',                    150);
-  }
+  $$('[data-split]').forEach(function(el){ split(el, 'w', true); });
+  var stmt = $('[data-words]'), words = [];
+  if(stmt){ split(stmt, 'sw', false); words = $$('.sw', stmt); }
+
+  $$('[data-stagger]').forEach(function(g){
+    $$('[data-reveal]', g).forEach(function(el, i){ el.style.setProperty('--i', i); });
+  });
 
   /* ---- counters ---- */
-  var counters = [].slice.call(document.querySelectorAll('[data-count]'));
-  counters.forEach(function(el){ el.dataset.final = el.textContent; if(!reduce) el.textContent = '0'; });
-  function runCount(el){
-    if(el.dataset.done) return;
-    el.dataset.done = '1';
-    var target = parseInt(el.dataset.count, 10), t0 = null, dur = 1400;
-    var guard = setTimeout(function(){ el.textContent = el.dataset.final; }, dur + 900);
+  var counters = $$('[data-count]');
+  counters.forEach(function(el){
+    el.setAttribute('data-final', el.textContent);
+    if(!reduce) el.textContent = '0';
+  });
+  function count(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var final = el.getAttribute('data-final');
+    if(reduce){ el.textContent = final; return; }
+    var t0 = null, dur = 1700;
     function frame(ts){
       if(!t0) t0 = ts;
       var p = Math.min((ts - t0) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased).toLocaleString('en-GB');
-      if(p < 1){ requestAnimationFrame(frame); }
-      else { clearTimeout(guard); el.textContent = el.dataset.final; }
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 4))).toLocaleString('en-GB');
+      if(p < 1) requestAnimationFrame(frame); else el.textContent = final;
     }
     requestAnimationFrame(frame);
+    setTimeout(function(){ el.textContent = final; }, dur + 900);
   }
 
-  var live = false;
-  function sweep(){
-    if(!live) return;
-    var line = window.innerHeight * 0.9;
-    for(var i = pending.length - 1; i >= 0; i--){
-      var r = pending[i].getBoundingClientRect();
-      if(r.top < line && r.bottom > -80){
-        pending[i].classList.add('in');
-        pending.splice(i, 1);
+  /* ---- reveals ---- */
+  var targets = $$('[data-reveal], [data-split]:not([data-split="hero"]), [data-count]');
+  function show(el){
+    el.classList.add('in');
+    if(el.hasAttribute('data-count')) count(el);
+  }
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+    targets.forEach(function(el){ io.observe(el); });
+  } else {
+    targets.forEach(show);
+  }
+
+  /* ---- mobile menu ---- */
+  var head = $('#head'), burger = $('#burger'), menu = $('#menu'), menuOpen = false;
+  function setMenu(open){
+    menuOpen = open;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    body.classList.toggle('menu-open', open);
+    if(open){
+      menu.hidden = false;
+      head.classList.remove('hide');
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ menu.classList.add('open'); }); });
+    } else {
+      menu.classList.remove('open');
+      setTimeout(function(){ if(!menuOpen) menu.hidden = true; }, reduce ? 0 : 480);
+    }
+  }
+  burger.addEventListener('click', function(){ setMenu(!menuOpen); });
+  $$('a', menu).forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menuOpen){ setMenu(false); burger.focus(); }
+  });
+
+  /* ---- towns: pinned horizontal scroll on wide screens ---- */
+  var towns = $('#towns'), track = $('#track'), tprog = $('#tprog'), pinned = false, dist = 0;
+  function layoutTowns(){
+    pinned = !reduce && window.innerWidth >= 900;
+    towns.classList.toggle('is-pinned', pinned);
+    track.style.transform = '';
+    if(pinned){
+      var last = track.lastElementChild;
+      var padL = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+      dist = Math.max(0, last.offsetLeft + last.offsetWidth + padL - track.clientWidth);
+      towns.style.height = (dist + window.innerHeight) + 'px';
+    } else {
+      dist = 0;
+      towns.style.height = '';
+    }
+  }
+  function paintTowns(){
+    if(!pinned) return;
+    var p = clamp(-towns.getBoundingClientRect().top / Math.max(dist, 1), 0, 1);
+    track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+    tprog.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+  }
+  track.addEventListener('scroll', function(){
+    if(pinned) return;
+    var m = track.scrollWidth - track.clientWidth;
+    tprog.style.transform = 'scaleX(' + (m > 0 ? track.scrollLeft / m : 0).toFixed(4) + ')';
+  }, { passive: true });
+  if('IntersectionObserver' in window){
+    var near = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){
+        $$('img', track).forEach(function(img){ img.loading = 'eager'; });
+        near.disconnect();
       }
-    }
-    for(var j = 0; j < counters.length; j++){
-      var c = counters[j].getBoundingClientRect();
-      if(c.top < line && c.bottom > 0) runCount(counters[j]);
-    }
+    }, { rootMargin: '100% 0px' });
+    near.observe(towns);
   }
 
-  /* ---- header, progress, parallax ---- */
-  var par = document.querySelector('.par');
-  var ticking = false;
+  /* ---- scroll-driven paint ---- */
+  var hero = $('.hero'), heroMedia = $('.hero-media'), heroInner = $('.hero-inner'), pbar = $('#pbar');
+  var par = $$('[data-speed]').map(function(el){
+    return { el: el, host: el.parentElement, s: parseFloat(el.getAttribute('data-speed')), wideOnly: !!el.closest('.collage') };
+  });
+  var lastY = 0, litCount = -1, ticking = false;
   function paint(){
     ticking = false;
-    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
-    header.classList.toggle('stuck', y > 34);
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    pbar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
-    if(par && !reduce && window.innerWidth > 760){
-      var r = par.getBoundingClientRect();
-      if(r.bottom > 0 && r.top < window.innerHeight){
-        par.style.transform = 'translate3d(0,' + (-r.top * 0.045).toFixed(2) + 'px,0) scale(1.06)';
+    var y = window.pageYOffset || root.scrollTop || 0, vh = window.innerHeight;
+    var heroH = hero.offsetHeight;
+
+    head.classList.toggle('solid', y > heroH - head.offsetHeight - 10);
+    if(!menuOpen){
+      if(y > vh * .5 && y > lastY + 5) head.classList.add('hide');
+      else if(y < lastY - 5 || y <= vh * .5) head.classList.remove('hide');
+    }
+    lastY = y;
+
+    var max = root.scrollHeight - vh;
+    pbar.style.transform = 'scaleX(' + (max > 0 ? clamp(y / max, 0, 1) : 0).toFixed(4) + ')';
+
+    if(!reduce){
+      if(y < heroH){
+        heroMedia.style.transform = 'translate3d(0,' + (y * .32).toFixed(1) + 'px,0)';
+        heroInner.style.transform = 'translate3d(0,' + (y * .14).toFixed(1) + 'px,0)';
+        heroInner.style.opacity = clamp(1 - y / (heroH * .72), 0, 1).toFixed(3);
+      }
+      var wide = window.innerWidth >= 900;
+      for(var i = 0; i < par.length; i++){
+        if(par[i].wideOnly && !wide){ par[i].el.style.transform = ''; continue; }
+        var r = par[i].host.getBoundingClientRect();
+        if(r.bottom < -120 || r.top > vh + 120) continue;
+        par[i].el.style.transform = 'translate3d(0,' + ((r.top + r.height / 2 - vh / 2) * par[i].s).toFixed(1) + 'px,0)';
+      }
+      if(words.length){
+        var sr = stmt.getBoundingClientRect();
+        var lit = Math.round(clamp((vh * .82 - sr.top) / (sr.height + vh * .3), 0, 1) * words.length);
+        if(lit !== litCount){
+          for(var k = 0; k < words.length; k++) words[k].classList.toggle('lit', k < lit);
+          litCount = lit;
+        }
       }
     }
-    sweep();
+    paintTowns();
   }
   function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(paint); } }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll, {passive:true});
+  window.addEventListener('scroll', onScroll, { passive: true });
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ layoutTowns(); paint(); }, 120);
+  });
 
-  /* ---- lift the loading screen ---- */
-  var opened = false;
+  /* ---- magnetic buttons ---- */
+  if(fine && !reduce){
+    $$('.magnetic').forEach(function(b){
+      b.addEventListener('pointermove', function(e){
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .2).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
+    });
+  }
+
+  /* ---- loader ---- */
+  var loader = $('#loader'), opened = false, began = Date.now();
+  body.classList.add('loading');
   function open(){
     if(opened) return;
     opened = true;
-    loader.classList.add('done');
     body.classList.remove('loading');
-    setTimeout(function(){ live = true; paint(); }, reduce ? 0 : 150);
-    setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 950);
+    body.classList.add('ready');
+    if(loader){
+      loader.classList.add('done');
+      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 1200);
+    }
+    layoutTowns();
+    paint();
   }
-  var began = Date.now();
-  var floor = reduce ? 0 : 1700;
+  layoutTowns();
+  paint();
   window.addEventListener('load', function(){
-    setTimeout(open, Math.max(0, floor - (Date.now() - began)));
+    layoutTowns();
+    paint();
+    setTimeout(open, reduce ? 0 : Math.max(0, 1300 - (Date.now() - began)));
   });
-  setTimeout(open, 7000);
+  setTimeout(open, 4500);
+
+  window.ORN_OK = true;
 })();
 </script>
-
 </body>
 </html>
