@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OrNature Cafe: good food, brighter days</title>
-<meta name="description" content="OrNature is a juice bar, cafe and organic grocery shelf coming to the Cotswolds. Cold-pressed juice, organic coffee and a range you can trace back to the field.">
-<meta name="theme-color" content="#04270F">
+<title>OrNature: juice bar, cafe and food shop coming to the Cotswolds</title>
+<meta name="description" content="OrNature is a juice bar, cafe and organic food shop coming to the Cotswolds. We're still choosing the town. Here's where we're up to.">
+<meta name="theme-color" content="#F7F3EB">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23044314' d='M22 2C12 3 4 7 4 15c0 2 .7 4 2 5.6L3 24h2.6l2.2-2.6C9.6 22.5 11.4 23 13 23c6 0 9-8 9-21ZM7 18.6C7.5 12 12 8.4 18.6 6.6 13 9 9 13.2 7 18.6Z'/%3E%3C/svg%3E">
 <link rel="canonical" href="https://ornature.co.uk/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="OrNature Cafe: good food, brighter days">
-<meta property="og:description" content="A juice bar, cafe and organic grocery shelf coming to the Cotswolds.">
+<meta property="og:title" content="OrNature: juice bar, cafe and food shop coming to the Cotswolds">
+<meta property="og:description" content="We're still choosing the town. Here's where we're up to.">
 <meta property="og:image" content="https://ornature.co.uk/img/hero.jpg">
 <meta property="og:url" content="https://ornature.co.uk/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
 <script>
 document.documentElement.classList.add('js');
@@ -29,14 +29,14 @@ setTimeout(function(){ if(!window.ORN_OK) document.documentElement.classList.rem
   --ink-soft:#4C6151;
   --paper:#F7F3EB;
   --paper-2:#EEE7DA;
+  --card:#FBF9F4;
   --leaf:#2F6B3F;
   --gold:#C2912C;
   --gold-soft:#E3BE62;
   --rule:rgba(11,60,27,.14);
-  --rule-strong:rgba(11,60,27,.3);
+  --rule-strong:rgba(11,60,27,.32);
   --pad:max(20px,4vw);
-  --head-h:78px;
-  --ease:cubic-bezier(.2,.7,.2,1);
+  --head-h:76px;
   --out:cubic-bezier(.16,1,.3,1);
   --curtain:cubic-bezier(.76,0,.24,1);
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
@@ -63,18 +63,14 @@ p{margin:0}
 .ico{width:1em;height:1em;flex:none}
 
 /* ---------- loader ---------- */
-.loader{
-  position:fixed;inset:0;z-index:200;display:none;place-items:center;
-  background:var(--ink-deep);color:var(--paper);
-  transition:transform 1.05s var(--curtain);
-}
+.loader{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:var(--ink-deep);color:var(--paper);transition:transform 1s var(--curtain)}
 .js .loader{display:grid}
 .loader.done{transform:translateY(-100%)}
 .loader-inner{display:flex;flex-direction:column;align-items:center;padding:0 24px}
-.loader img{width:min(290px,62vw);height:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(16px);animation:rise 1s var(--out) .1s forwards}
-.loader-tag{margin-top:18px;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);opacity:0;animation:fade .8s ease .55s forwards}
-.loader-bar{display:block;width:min(180px,40vw);height:1px;margin-top:30px;background:rgba(247,243,235,.16);overflow:hidden}
-.loader-bar i{display:block;height:100%;background:var(--gold-soft);transform:scaleX(0);transform-origin:left;animation:fill 1.2s var(--curtain) .2s forwards}
+.loader img{width:min(280px,62vw);height:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(14px);animation:rise .9s var(--out) .1s forwards}
+.loader-tag{margin-top:16px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);opacity:0;animation:fade .7s ease .5s forwards}
+.loader-bar{display:block;width:min(170px,40vw);height:1px;margin-top:28px;background:rgba(247,243,235,.16);overflow:hidden}
+.loader-bar i{display:block;height:100%;background:var(--gold-soft);transform:scaleX(0);transform-origin:left;animation:fill 1.1s var(--curtain) .2s forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes fade{to{opacity:1}}
 @keyframes fill{to{transform:scaleX(1)}}
@@ -84,24 +80,21 @@ p{margin:0}
 
 /* ---------- header ---------- */
 .site-head{
-  position:fixed;top:0;left:0;right:0;z-index:80;height:var(--head-h);
-  display:flex;align-items:center;color:var(--paper);
-  transition:transform .5s var(--out),background-color .35s ease,color .35s ease,box-shadow .35s ease;
+  position:fixed;top:0;left:0;right:0;z-index:80;height:var(--head-h);display:flex;align-items:center;
+  background:rgba(247,243,235,.9);-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);
+  transition:transform .5s var(--out),box-shadow .3s ease,background-color .3s ease,color .3s ease;
 }
-.site-head::before{content:"";position:absolute;inset:0 0 -30px;background:linear-gradient(to bottom,rgba(4,39,15,.5),rgba(4,39,15,0));pointer-events:none;transition:opacity .35s ease}
-.site-head.solid{background:rgba(247,243,235,.92);color:var(--ink);box-shadow:0 1px 0 var(--rule);-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2)}
-.site-head.solid::before{opacity:0}
+.site-head.scrolled{box-shadow:0 1px 0 var(--rule)}
 .site-head.hide{transform:translateY(-100%)}
-.bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:28px}
 .mark{display:block;line-height:0}
-.mark img{width:clamp(128px,12vw,164px);height:auto;filter:brightness(0) invert(1);transition:filter .35s ease}
-.solid .mark img{filter:none}
-.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:.86rem;letter-spacing:.02em}
+.mark img{width:clamp(126px,12vw,158px);height:auto;transition:filter .3s ease}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:.88rem}
 .nav a{position:relative;display:block;padding:6px 0;text-decoration:none}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--out)}
 .nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
-.head-cta{display:inline-flex;align-items:center;padding:10px 20px;border:1px solid currentColor;border-radius:999px;font-size:.82rem;text-decoration:none;transition:background-color .25s ease,border-color .25s ease,color .25s ease}
-.head-cta:hover{background:var(--gold);border-color:var(--gold);color:#1B2E12}
+.head-cta{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:.84rem;text-decoration:none;transition:background-color .25s ease,color .25s ease}
+.head-cta:hover{background:var(--gold);color:#1B2E12}
 .burger{display:none;position:relative;width:46px;height:46px;margin-right:-10px;border:0;background:transparent;color:inherit;cursor:pointer}
 .burger span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .45s var(--out),top .45s var(--out)}
 .burger span:nth-child(1){top:18px}
@@ -109,248 +102,211 @@ p{margin:0}
 .menu-open .burger span:nth-child(1){top:22.5px;transform:rotate(45deg)}
 .menu-open .burger span:nth-child(2){top:22.5px;transform:rotate(-45deg)}
 body.menu-open .site-head{background:transparent;color:var(--paper);box-shadow:none;transform:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-body.menu-open .site-head::before{opacity:0}
 body.menu-open .mark img{filter:brightness(0) invert(1)}
 @media(max-width:900px){.nav,.head-cta{display:none}.burger{display:block}}
 
-.menu-overlay{
-  position:fixed;inset:0;z-index:79;display:flex;flex-direction:column;justify-content:center;
-  padding:var(--head-h) var(--pad) 40px;background:var(--ink-deep);color:var(--paper);
-  opacity:0;transition:opacity .45s ease;
-}
+.menu-overlay{position:fixed;inset:0;z-index:79;display:flex;flex-direction:column;justify-content:center;padding:var(--head-h) var(--pad) 40px;background:var(--ink-deep);color:var(--paper);opacity:0;transition:opacity .4s ease}
 .menu-overlay[hidden]{display:none}
 .menu-overlay.open{opacity:1}
 .menu-overlay ul{list-style:none;margin:0;padding:0}
 .menu-overlay li{overflow:hidden}
-.menu-overlay li a{display:block;font-family:var(--serif);font-size:clamp(2.4rem,11vw,3.6rem);line-height:1.18;text-decoration:none;transform:translateY(105%);transition:transform .75s var(--out);transition-delay:calc(var(--i,0) * 60ms + 100ms)}
+.menu-overlay li a{display:block;font-family:var(--serif);font-size:clamp(2.3rem,10vw,3.4rem);line-height:1.2;text-decoration:none;transform:translateY(105%);transition:transform .7s var(--out);transition-delay:calc(var(--i,0) * 60ms + 100ms)}
 .menu-overlay.open li a{transform:none}
-.menu-mail{margin-top:34px;font-size:.92rem;color:var(--gold-soft);text-decoration:none}
+.menu-mail{margin-top:32px;font-size:.92rem;color:var(--gold-soft);text-decoration:none}
 
 /* ---------- shared ---------- */
-.label{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf)}
-.label::before{content:"";width:28px;height:1px;background:currentColor}
-.h{font-size:clamp(2.6rem,5.8vw,5.2rem);line-height:.98;letter-spacing:-.018em}
-.h em{font-style:italic;font-weight:400;color:var(--leaf)}
-.lead{max-width:38ch;margin-top:24px;font-size:clamp(1.02rem,.4vw + .92rem,1.2rem);color:var(--ink-soft)}
-.sec{padding:clamp(88px,11vw,150px) 0}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(38px,4.6vw,60px)}
-.sec-head .lead{margin-top:0}
-
+.sec{padding:clamp(80px,10vw,140px) 0}
+.h{font-size:clamp(2.2rem,4.4vw,3.8rem);line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+.lead{max-width:44ch;margin-top:18px;font-size:clamp(1.02rem,.35vw + .94rem,1.16rem);color:var(--ink-soft)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(34px,4vw,54px)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{
-  display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:999px;
-  border:1px solid transparent;font-size:.9rem;font-weight:400;letter-spacing:.01em;text-decoration:none;
-  transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .45s var(--out);
-}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;border:1px solid transparent;font-size:.92rem;font-weight:400;text-decoration:none;transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .45s var(--out)}
 .btn .ico{transition:transform .35s var(--out)}
 .btn:hover .ico{transform:translateX(4px)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:var(--leaf)}
+.btn-line{border-color:var(--rule-strong);color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);background:var(--paper-2)}
 .btn-gold{background:var(--gold);color:#1B2E12}
 .btn-gold:hover{background:var(--gold-soft)}
-.btn-line{border-color:rgba(247,243,235,.5);color:var(--paper)}
-.btn-line:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
-.link-arrow{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding-bottom:6px;border-bottom:1px solid var(--rule-strong);font-size:.92rem;text-decoration:none;transition:border-color .25s ease,gap .35s var(--out)}
-.link-arrow:hover{gap:16px;border-color:var(--leaf)}
+.text-link{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding-bottom:5px;border-bottom:1px solid var(--rule-strong);font-size:.94rem;text-decoration:none;transition:gap .35s var(--out),border-color .25s ease}
+.text-link:hover{gap:16px;border-color:var(--ink)}
+.photo{margin:0}
+.photo .ph{overflow:hidden;border-radius:10px;background:var(--paper-2)}
+.photo img{width:100%;height:auto}
+.photo figcaption{margin-top:10px;font-size:.82rem;color:var(--ink-soft)}
 
-/* ---------- motion primitives ---------- */
+/* ---------- motion ---------- */
 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.06em 0 .12em;margin:-.06em 0 -.12em}
 .w>span{display:inline-block}
-.js [data-split] .w>span{transform:translateY(108%);transition:transform 1s var(--out);transition-delay:calc(var(--i,0) * 55ms)}
+.js [data-split] .w>span{transform:translateY(108%);transition:transform .95s var(--out);transition-delay:calc(var(--i,0) * 45ms)}
 .js [data-split].in .w>span{transform:none}
-
-.js [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--out),transform .9s var(--out);transition-delay:calc(var(--i,0) * 90ms)}
+.js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .85s var(--out),transform .85s var(--out);transition-delay:calc(var(--i,0) * 90ms)}
 .js [data-reveal].in{opacity:1;transform:none}
-.js [data-reveal="clip"]{opacity:1;transform:none;clip-path:inset(100% 0 0 0);transition:clip-path 1.25s var(--curtain);transition-delay:calc(var(--i,0) * 90ms)}
+.js [data-reveal="clip"]{opacity:1;transform:none;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--curtain);transition-delay:calc(var(--i,0) * 110ms)}
 .js [data-reveal="clip"].in{clip-path:inset(0 0 0 0)}
-.js [data-reveal="clip"] img{transform:scale(1.2);transition:transform 1.7s var(--out)}
+.js [data-reveal="clip"] img{transform:scale(1.18);transition:transform 1.6s var(--out)}
 .js [data-reveal="clip"].in img{transform:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;display:flex;align-items:flex-end;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--ink-deep);color:var(--paper)}
-.hero-media{position:absolute;inset:0;will-change:transform}
-.hero-img{width:100%;height:100%;object-fit:cover;object-position:50% 34%}
-.js .hero-img{transform:scale(1.16);transition:transform 2.8s var(--out)}
-.ready .hero-img{transform:scale(1.02)}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,39,15,.72) 0%,rgba(4,39,15,.42) 40%,rgba(4,39,15,0) 68%),linear-gradient(to top,rgba(4,39,15,.94) 0%,rgba(4,39,15,.66) 30%,rgba(4,39,15,.2) 62%,rgba(4,39,15,.3) 100%)}
-.hero-inner{position:relative;z-index:2;padding-bottom:clamp(60px,10vh,112px)}
-.eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:22px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
-.eyebrow span+span::before{content:"";display:inline-block;width:4px;height:4px;margin:0 12px 0 2px;border-radius:50%;background:currentColor;vertical-align:middle;opacity:.7}
-.hero-title{font-size:clamp(3.3rem,10.4vw,9.8rem);line-height:.9;letter-spacing:-.022em}
-.hero-title em{font-style:italic;font-weight:400;color:var(--gold-soft)}
-.hero-sub{max-width:42ch;margin-top:28px;font-size:clamp(1rem,.45vw + .9rem,1.2rem);color:rgba(247,243,235,.86)}
-.hero .actions{margin-top:34px}
-.js .hero-title .w>span{transition:transform 1.25s var(--out);transition-delay:calc(var(--i,0) * 120ms + 150ms)}
-.ready .hero-title .w>span{transform:none}
-.js [data-hero]{opacity:0;transform:translateY(22px);transition:opacity 1s var(--out),transform 1s var(--out);transition-delay:var(--d,0s)}
+.hero{padding:calc(var(--head-h) + clamp(34px,5vw,80px)) 0 clamp(56px,7vw,100px)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.status{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px;padding:7px 14px;border:1px solid var(--rule-strong);border-radius:999px;font-size:.8rem;color:var(--ink-soft)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(194,145,44,.5)}50%{box-shadow:0 0 0 7px rgba(194,145,44,0)}}
+.hero h1{max-width:16ch;text-wrap:balance;font-size:clamp(2.6rem,5.2vw,4.7rem);line-height:1.02;letter-spacing:-.015em}
+.hero .lead{max-width:40ch;margin-top:22px}
+.hero .actions{margin-top:32px}
+.hero-photo{position:relative;margin:0}
+.hero-photo .ph{position:relative;overflow:hidden;border-radius:12px;aspect-ratio:4/3;background:var(--paper-2);box-shadow:0 40px 70px -40px rgba(4,39,15,.45);touch-action:pan-y;user-select:none}
+.slides{display:flex;height:100%;transition:transform 1.1s var(--curtain);will-change:transform}
+.slide{flex:none;width:100%;height:100%;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 7s linear}
+.slide.is-active img{transform:none}
+.slider-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px}
+.slide-cap{min-height:1.5em;font-size:.82rem;color:var(--ink-soft)}
+.dots{display:flex;align-items:center;flex:none;margin-right:-6px}
+.dot{display:block;padding:10px 5px;border:0;background:none;cursor:pointer}
+.dot span{position:relative;display:block;width:10px;height:10px;overflow:hidden;border-radius:999px;background:var(--rule-strong);transition:width .5s var(--out),background-color .3s ease}
+.dot:hover span{background:var(--ink-soft)}
+.dot.on span{width:36px}
+.dot span i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left}
+.dot.on span i{transform:scaleX(1)}
+.playing .dot.on span i{animation:dotfill 5.5s linear forwards}
+.hero-photo:hover .dot.on span i,.hero-photo:focus-within .dot.on span i,.paused .dot.on span i{animation-play-state:paused}
+@keyframes dotfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.js .hero-photo .ph{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s var(--curtain) .35s}
+.ready .hero-photo .ph{clip-path:inset(0 0 0 0)}
+.js .hero h1 .w>span{transition-delay:calc(var(--i,0) * 60ms + 200ms)}
+.ready .hero h1 .w>span{transform:none}
+.js [data-hero]{opacity:0;transform:translateY(20px);transition:opacity .9s var(--out),transform .9s var(--out);transition-delay:var(--d,0s)}
 .ready [data-hero]{opacity:1;transform:none}
-.scroll-cue{position:absolute;right:var(--pad);bottom:clamp(60px,10vh,112px);z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(247,243,235,.75);text-decoration:none}
-.scroll-cue i{position:relative;display:block;width:1px;height:70px;background:rgba(247,243,235,.22);overflow:hidden}
-.scroll-cue i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--gold-soft);animation:cue 2.1s var(--ease) infinite}
-@keyframes cue{to{top:100%}}
-@media(max-width:700px){.scroll-cue{display:none}}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{max-width:18ch}
+}
 
 /* ---------- ticker ---------- */
-.ticker{overflow:hidden;padding:20px 0;background:var(--gold);color:#1B2E12}
-.ticker-track{display:flex;width:max-content;animation:tick 40s linear infinite}
+.ticker{overflow:hidden;padding:16px 0;background:var(--gold);color:#1B2E12}
+.ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
 .ticker:hover .ticker-track{animation-play-state:paused}
 .ticker-group{display:flex;flex:none;align-items:center}
-.ticker-group span{display:inline-flex;align-items:center;gap:30px;padding-right:30px;font-family:var(--serif);font-size:clamp(1.45rem,2.5vw,2.2rem);font-style:italic;white-space:nowrap}
-.ticker-group .ico{width:.62em;height:.62em;opacity:.55}
+.ticker-group span{display:inline-flex;align-items:center;padding-right:26px;font-size:.84rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.ticker-group span::after{content:"";width:5px;height:5px;margin-left:26px;border-radius:50%;background:currentColor;opacity:.5}
 @keyframes tick{to{transform:translateX(-50%)}}
 
-/* ---------- statement ---------- */
-.statement{padding:clamp(100px,14vw,200px) 0 clamp(40px,6vw,80px)}
-.big-words{max-width:17ch;font-family:var(--serif);font-size:clamp(2.3rem,6vw,5.6rem);line-height:1.04;letter-spacing:-.016em}
-.big-words em{font-style:italic;color:var(--leaf)}
-.js .big-words .sw{opacity:.13;transition:opacity .4s ease}
-.big-words .sw.lit{opacity:1}
-
-/* ---------- story ---------- */
-.story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(44px,6vw,100px);align-items:center}
+/* ---------- darren ---------- */
+.story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(44px,6vw,100px);align-items:center}
 .collage{position:relative;aspect-ratio:1/1.02}
 .collage figure{position:absolute;margin:0;will-change:transform}
-.collage .ph{overflow:hidden;border-radius:6px;box-shadow:0 34px 60px -34px rgba(4,39,15,.5)}
+.collage .ph{overflow:hidden;border-radius:8px;box-shadow:0 30px 55px -32px rgba(4,39,15,.45)}
 .collage img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .c1{top:0;left:0;width:62%;z-index:1}
 .c2{top:30%;right:0;width:50%;z-index:2}
 .c3{bottom:0;left:9%;width:55%;z-index:3}
-.tag{position:absolute;top:12px;left:12px;z-index:2;padding:6px 12px;border-radius:999px;background:rgba(247,243,235,.92);color:var(--ink);font-size:.68rem;letter-spacing:.06em;white-space:nowrap}
-@media(max-width:600px){.tag{top:8px;left:8px;padding:4px 9px;font-size:.6rem}}
+.tag{position:absolute;top:10px;left:10px;z-index:2;padding:5px 11px;border-radius:999px;background:var(--paper);color:var(--ink);font-size:.7rem;white-space:nowrap}
 @media(max-width:900px){.story-grid{grid-template-columns:1fr}.collage{aspect-ratio:1/1.12}}
+@media(max-width:600px){.tag{top:7px;left:7px;padding:3px 9px;font-size:.62rem}}
 
-/* ---------- numbers band ---------- */
-.band{position:relative;overflow:hidden;padding:clamp(96px,12vw,170px) 0;background:var(--ink-deep);color:var(--paper)}
-.band-bg{position:absolute;inset:-14% 0;will-change:transform}
-.band-bg img{width:100%;height:100%;object-fit:cover}
-.band-shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(4,39,15,.92) 0%,rgba(4,39,15,.66) 55%,rgba(4,39,15,.4) 100%)}
-.band .wrap{position:relative}
-.band .h{max-width:13ch}
-.band .h em{color:var(--gold-soft)}
-.stats{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:clamp(50px,6vw,90px)}
-.stat{padding-top:22px;border-top:1px solid rgba(247,243,235,.28)}
-.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(3rem,5.8vw,5.2rem);line-height:1;color:var(--gold-soft);font-variant-numeric:tabular-nums}
-.stat span{display:block;max-width:22ch;margin-top:12px;font-size:.86rem;color:rgba(247,243,235,.78)}
-@media(max-width:820px){.stats{grid-template-columns:1fr 1fr;row-gap:40px}}
+/* ---------- numbers ---------- */
+.strip{display:block;width:100%;height:clamp(200px,26vw,340px);object-fit:cover}
+.numbers{padding:clamp(70px,8vw,110px) 0;background:var(--ink-deep);color:var(--paper)}
+.stats{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:clamp(36px,4vw,56px)}
+.stat{padding-top:20px;border-top:1px solid rgba(247,243,235,.25)}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,5.4vw,4.8rem);line-height:1;color:var(--gold-soft);font-variant-numeric:tabular-nums}
+.stat span{display:block;max-width:22ch;margin-top:10px;font-size:.9rem;color:rgba(247,243,235,.8)}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr;row-gap:36px}}
 
-/* ---------- towns ---------- */
-.towns{position:relative;background:var(--paper-2)}
-.towns-sticky{padding:clamp(88px,11vw,140px) 0 clamp(70px,8vw,110px)}
-.towns-track{
-  position:relative;display:flex;gap:clamp(16px,1.8vw,26px);
-  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
-  padding:4px max(var(--pad),calc((100% - 1200px) / 2)) 10px;
+/* ---------- towns carousel ---------- */
+.towns{background:var(--paper-2)}
+.car-controls{display:flex;gap:10px}
+.car-btn{display:grid;place-items:center;width:50px;height:50px;border:1px solid var(--rule-strong);border-radius:50%;background:transparent;color:var(--ink);font-size:1.15rem;cursor:pointer;transition:background-color .25s ease,color .25s ease,border-color .25s ease,opacity .25s ease}
+.car-btn:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.car-btn:disabled{opacity:.3;cursor:default}
+.car-btn.prev .ico{transform:rotate(180deg)}
+.track{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:4px max(var(--pad),calc((100% - 1200px) / 2)) 12px;
+  scroll-padding-inline:max(var(--pad),calc((100% - 1200px) / 2));
+  cursor:grab;
 }
-.towns-track::-webkit-scrollbar{display:none}
-.town{position:relative;flex:none;width:clamp(260px,76vw,420px);aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:var(--ink-deep);color:var(--paper);scroll-snap-align:center}
-.town img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--out)}
+.track::-webkit-scrollbar{display:none}
+.track.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.track.dragging *{pointer-events:none}
+.town{flex:none;width:clamp(240px,70vw,300px);scroll-snap-align:start}
+.town .ph{overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:var(--paper)}
+.town img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--out)}
 .town:hover img{transform:scale(1.06)}
-.town::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,39,15,.94) 0%,rgba(4,39,15,.35) 42%,rgba(4,39,15,0) 68%)}
-.town-meta{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(22px,2.4vw,30px)}
-.town h3{margin:14px 0 8px;font-size:clamp(2.1rem,3.2vw,3rem);line-height:1}
-.town p{max-width:28ch;font-size:.88rem;color:rgba(247,243,235,.82)}
-.rank{display:inline-block;padding:6px 12px;border:1px solid rgba(247,243,235,.3);border-radius:999px;background:rgba(247,243,235,.14);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.rank.r-ex{background:var(--gold);border-color:var(--gold);color:#1B2E12}
-.rank.r-st{background:var(--leaf);border-color:var(--leaf)}
-.town-end{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,2.6vw,34px);background:var(--ink)}
-.town-end::after{display:none}
-.also{list-style:none;margin:22px 0 0;padding:0}
-.also li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid rgba(247,243,235,.16)}
-.also b{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.1}
-.also span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);white-space:nowrap}
-.towns-progress{height:2px;margin-top:28px;overflow:hidden;border-radius:2px;background:var(--rule)}
-.towns-progress i{display:block;height:100%;background:var(--leaf);transform:scaleX(0);transform-origin:left}
-.towns.is-pinned .towns-sticky{position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;height:100vh;overflow:hidden;padding:calc(var(--head-h) + 8px) 0 36px}
-.towns.is-pinned .towns-track{overflow:visible;scroll-snap-type:none;will-change:transform}
-.towns.is-pinned .town{width:auto;height:min(56vh,560px)}
+.town-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.town h3{font-size:1.75rem;line-height:1.05}
+.town p{margin-top:6px;font-size:.9rem;color:var(--ink-soft)}
+.rank{flex:none;padding:4px 10px;border:1px solid var(--rule-strong);border-radius:999px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+.rank.ex{background:var(--gold);border-color:var(--gold);color:#1B2E12}
+.rank.st{background:var(--leaf);border-color:var(--leaf);color:var(--paper)}
+.town-list{align-self:stretch;padding:24px;border-radius:10px;background:var(--card);border:1px solid var(--rule)}
+.town-list h3{font-size:1.5rem}
+.town-list ul{list-style:none;margin:14px 0 0;padding:0}
+.town-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--rule);font-size:.95rem}
+.car-progress{height:2px;margin-top:26px;overflow:hidden;border-radius:2px;background:var(--rule)}
+.car-progress i{display:block;height:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .2s linear}
 
 /* ---------- range ---------- */
-.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:250px 250px 320px auto;gap:14px}
-.tile{position:relative;margin:0;overflow:hidden;border-radius:8px;background:var(--paper-2);isolation:isolate}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--out)}
-.tile:hover img{transform:scale(1.05)}
-.tile figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:48px 24px 22px;color:var(--paper);background:linear-gradient(to top,rgba(4,39,15,.88),rgba(4,39,15,0))}
-.tile figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.55rem,2.3vw,2.1rem);line-height:1.05}
-.tile figcaption span{display:block;max-width:36ch;margin-top:4px;font-size:.85rem;color:rgba(247,243,235,.82)}
-.t-big{grid-column:1/4;grid-row:1/3}
-.t-tall{grid-column:4/5;grid-row:1/3}
-.t-a{grid-column:1/3;grid-row:3/4}
-.t-b{grid-column:3/5;grid-row:3/4}
-.t-list{grid-column:1/-1;grid-row:4/5;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;padding:clamp(26px,3vw,40px);background:var(--ink);color:var(--paper)}
-.t-list h3{font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1}
-.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0;max-width:820px}
-.chips li{padding:9px 16px;border:1px solid rgba(247,243,235,.24);border-radius:999px;font-size:.85rem;cursor:default;transition:background-color .25s ease,border-color .25s ease,color .25s ease}
-.chips li:hover{background:var(--gold);border-color:var(--gold);color:#1B2E12}
-@media(max-width:900px){
-  .bento{grid-template-columns:1fr 1fr;grid-template-rows:none}
-  .t-big,.t-tall,.t-a,.t-b,.t-list{grid-column:auto;grid-row:auto}
-  .t-big{grid-column:1/-1;aspect-ratio:2/1}
-  .t-tall,.t-a{aspect-ratio:3/4}
-  .t-b{grid-column:1/-1;aspect-ratio:3/2}
-  .t-list{grid-column:1/-1}
-}
-@media(max-width:560px){
-  .bento{grid-template-columns:1fr}
-  .t-big{aspect-ratio:auto}
-  .t-big img{position:static;height:auto;aspect-ratio:2/1}
-  .t-big figcaption{position:static;padding:20px 22px;background:var(--ink)}
-  .t-tall,.t-a{aspect-ratio:4/5}
-}
+.products{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+.product{margin:0}
+.product .ph{overflow:hidden;border-radius:10px;height:clamp(230px,24vw,330px);background:var(--paper-2)}
+.product img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--out)}
+.product:hover img{transform:scale(1.05)}
+.product figcaption{margin-top:14px}
+.product b{display:block;font-family:var(--serif);font-weight:500;font-size:1.6rem;line-height:1.1}
+.product span{display:block;margin-top:4px;font-size:.9rem;color:var(--ink-soft)}
+.first-ten{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:clamp(36px,4vw,50px);padding-top:26px;border-top:1px solid var(--rule)}
+.first-ten b{font-weight:400;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{padding:7px 14px;border:1px solid var(--rule-strong);border-radius:999px;font-size:.86rem;cursor:default;transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.chips li:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+@media(max-width:900px){.products{grid-template-columns:1fr 1fr}.products .product:first-child{grid-column:1/-1}}
+@media(max-width:560px){.products{grid-template-columns:1fr}}
 
 /* ---------- sourcing ---------- */
-.source{position:relative;overflow:hidden;padding:clamp(96px,12vw,170px) 0;background:var(--ink-deep);color:var(--paper)}
-.source-bg{position:absolute;inset:-14% 0;will-change:transform}
-.source-bg img{width:100%;height:100%;object-fit:cover}
-.source-shade{position:absolute;inset:0;background:rgba(4,39,15,.8)}
-.source .wrap{position:relative}
-.source .label{color:var(--gold-soft)}
-.source .h em{color:var(--gold-soft)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;margin:clamp(48px,5vw,72px) 0 0;padding:0;counter-reset:s}
-.steps li{counter-increment:s;padding:28px 24px 30px;border:1px solid rgba(247,243,235,.16);border-radius:8px;background:rgba(247,243,235,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.js .steps li.in{transition:opacity .9s var(--out),transform .45s var(--out),background-color .3s ease;transition-delay:0s}
-.steps li:hover,.js .steps li.in:hover{transform:translateY(-6px);background:rgba(247,243,235,.12)}
-.steps li::before{content:counter(s,decimal-leading-zero);display:block;margin-bottom:38px;font-family:var(--serif);font-size:1.05rem;color:var(--gold-soft)}
-.steps h3{margin-bottom:8px;font-size:1.95rem;line-height:1}
-.steps p{font-size:.9rem;color:rgba(247,243,235,.78)}
-.partners{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:44px;font-size:.92rem;color:rgba(247,243,235,.86)}
-.partners .label{margin:0 6px 0 0}
-@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:18px 0;border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s,decimal-leading-zero);grid-row:span 2;padding-top:4px;font-family:var(--serif);font-size:1.05rem;color:var(--gold)}
+.steps h3{font-size:1.45rem;line-height:1.1}
+.steps p{font-size:.94rem;color:var(--ink-soft)}
+.suppliers{margin-top:24px;font-size:.92rem;color:var(--ink-soft)}
+.suppliers b{font-weight:400;color:var(--ink)}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
 
-/* ---------- format ---------- */
-.format{background:var(--paper-2)}
-.format-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(44px,6vw,96px);align-items:center}
-.format-img{margin:0}
-.format-img .ph{overflow:hidden;border-radius:8px}
-.format-img img{width:100%;height:auto}
-.format-img figcaption{margin-top:12px;font-size:.8rem;color:var(--ink-soft)}
-.menu{margin-top:40px}
-.menu-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
-.menu ul{list-style:none;margin:12px 0 0;padding:0}
-.menu li{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);transition:padding .4s var(--out),color .25s ease}
-.menu li:hover{padding-left:10px;color:var(--leaf)}
-.menu .n{font-family:var(--serif);font-size:1.45rem;line-height:1.2;white-space:nowrap}
-.menu .dots{flex:1;min-width:12px;border-bottom:1px dotted var(--rule-strong);transform:translateY(-6px)}
-.menu .p{font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
-@media(max-width:900px){.format-grid{grid-template-columns:1fr}}
+/* ---------- shop ---------- */
+.shop{background:var(--paper-2)}
+.menu-list{margin-top:34px}
+.menu-list h3{font-family:inherit;font-size:.8rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.menu-list ul{list-style:none;margin:10px 0 0;padding:0}
+.menu-list li{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--rule);transition:padding .4s var(--out),color .25s ease}
+.menu-list li:hover{padding-left:8px;color:var(--leaf)}
+.menu-list .n{font-family:var(--serif);font-size:1.4rem;line-height:1.2;white-space:nowrap}
+.menu-list .dots{flex:1;min-width:12px;border-bottom:1px dotted var(--rule-strong);transform:translateY(-6px)}
+.menu-list .p{font-size:.95rem;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* ---------- contact ---------- */
-.cta{position:relative;overflow:hidden;padding:clamp(120px,15vw,220px) 0 clamp(96px,11vw,150px);background:var(--ink-deep);color:var(--paper);text-align:center}
-.sun{position:absolute;left:50%;top:56%;width:min(920px,130vw);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(227,190,98,.3) 0%,rgba(194,145,44,.12) 34%,rgba(4,39,15,0) 68%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
-@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.12);opacity:.72}}
+.cta{position:relative;overflow:hidden;padding:clamp(100px,13vw,180px) 0;background:var(--ink-deep);color:var(--paper);text-align:center}
+.sun{position:absolute;left:50%;top:60%;width:min(880px,130vw);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(227,190,98,.26) 0%,rgba(194,145,44,.1) 34%,rgba(4,39,15,0) 68%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.12);opacity:.75}}
 .cta .wrap{position:relative}
-.cta-title{font-size:clamp(3.2rem,9.4vw,8.8rem);line-height:.92;letter-spacing:-.022em}
-.cta-title em{font-style:italic;font-weight:400;color:var(--gold-soft)}
-.cta p{max-width:40ch;margin:28px auto 0;color:rgba(247,243,235,.8)}
-.cta .actions{justify-content:center;margin-top:38px}
-.cta .fine{margin-top:26px;font-size:.82rem;color:rgba(247,243,235,.5)}
+.cta h2{font-size:clamp(2.6rem,6.4vw,5.6rem);line-height:1;letter-spacing:-.015em}
+.cta p{max-width:40ch;margin:22px auto 0;color:rgba(247,243,235,.8)}
+.cta .actions{justify-content:center;margin-top:34px}
+.cta .fine{margin-top:22px;font-size:.84rem;color:rgba(247,243,235,.55)}
 
 /* ---------- footer ---------- */
-.foot{padding-bottom:40px;background:var(--ink-deep);color:rgba(247,243,235,.7);font-size:.86rem}
-.foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;padding:34px 0;border-top:1px solid rgba(247,243,235,.14)}
-.foot .mark img{width:136px;filter:brightness(0) invert(1)}
+.foot{padding-bottom:40px;background:var(--ink-deep);color:rgba(247,243,235,.72);font-size:.88rem}
+.foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;padding:32px 0;border-top:1px solid rgba(247,243,235,.14)}
+.foot .mark img{width:132px;filter:brightness(0) invert(1)}
 .foot ul{display:flex;flex-wrap:wrap;gap:10px 26px;list-style:none;margin:0;padding:0}
 .foot a{text-decoration:none;transition:color .2s ease}
 .foot a:hover{color:var(--gold-soft)}
-.credits{padding-top:22px;border-top:1px solid rgba(247,243,235,.1);font-size:.7rem;line-height:1.7;color:rgba(247,243,235,.45)}
+.credits{padding-top:22px;border-top:1px solid rgba(247,243,235,.1);font-size:.72rem;line-height:1.7;color:rgba(247,243,235,.48)}
 .credits a{text-decoration:underline;text-decoration-color:rgba(247,243,235,.25);text-underline-offset:2px}
 
 @media(prefers-reduced-motion:reduce){
@@ -358,18 +314,19 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important}
   .loader{display:none !important}
   .js [data-reveal],.js [data-reveal="clip"]{opacity:1;transform:none;clip-path:none}
-  .js [data-reveal="clip"] img,.js .hero-img{transform:none}
+  .js [data-reveal="clip"] img,.slide img{transform:none}
+  .slides{transition:none}
+  .playing .dot.on span i{animation:none}
+  .js .hero-photo .ph{clip-path:none}
   .js [data-split] .w>span{transform:none}
   .js [data-hero]{opacity:1;transform:none}
-  .js .big-words .sw{opacity:1}
-  .ticker-track,.sun{animation:none}
+  .ticker-track,.sun,.status i{animation:none}
 }
 </style>
 </head>
 <body>
 
 <svg class="sprite" aria-hidden="true" focusable="false">
-  <symbol id="leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M22 2C12 3 4 7 4 15c0 2 .7 4 2 5.6L3 24h2.6l2.2-2.6C9.6 22.5 11.4 23 13 23c6 0 9-8 9-21ZM7 18.6C7.5 12 12 8.4 18.6 6.6 13 9 9 13.2 7 18.6Z"/></symbol>
   <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
@@ -389,10 +346,10 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
     <a class="mark" href="#top" aria-label="OrNature, back to top"><img src="img/logo.png" width="1200" height="319" alt="OrNature"></a>
     <nav class="nav" aria-label="Main">
       <ul>
-        <li><a href="#story">Story</a></li>
+        <li><a href="#darren">Our progress</a></li>
         <li><a href="#towns">Towns</a></li>
-        <li><a href="#range">Range</a></li>
-        <li><a href="#source">Sourcing</a></li>
+        <li><a href="#range">What we&rsquo;ll sell</a></li>
+        <li><a href="#shop">The shop</a></li>
       </ul>
     </nav>
     <a class="head-cta" href="#contact">Get in touch</a>
@@ -402,11 +359,11 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
 
 <div class="menu-overlay" id="menu" hidden>
   <ul>
-    <li><a href="#story" style="--i:0">Story</a></li>
+    <li><a href="#darren" style="--i:0">Our progress</a></li>
     <li><a href="#towns" style="--i:1">Towns</a></li>
-    <li><a href="#range" style="--i:2">Range</a></li>
-    <li><a href="#source" style="--i:3">Sourcing</a></li>
-    <li><a href="#format" style="--i:4">The format</a></li>
+    <li><a href="#range" style="--i:2">What we&rsquo;ll sell</a></li>
+    <li><a href="#sourcing" style="--i:3">Where it comes from</a></li>
+    <li><a href="#shop" style="--i:4">The shop</a></li>
     <li><a href="#contact" style="--i:5">Get in touch</a></li>
   </ul>
   <a class="menu-mail" href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com</a>
@@ -415,207 +372,210 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
 <main id="main">
 
   <section class="hero" id="top">
-    <div class="hero-media">
-      <img class="hero-img" src="img/hero.jpg" width="1448" height="1086" alt="The OrNature Cafe shopfront: a pale timber frontage under a green awning, a juice bar window stacked with citrus and herbs, a chilled cabinet of cold-pressed bottles, and planting trailing down either side of the fascia." fetchpriority="high">
-    </div>
-    <div class="hero-shade"></div>
-    <div class="wrap hero-inner">
-      <p class="eyebrow" data-hero style="--d:.2s"><span>Juice bar</span><span>Cafe</span><span>Grocery</span></p>
-      <h1 class="hero-title" data-split="hero">Good food.<br><em>Brighter days.</em></h1>
-      <p class="hero-sub" data-hero style="--d:.75s">Cold-pressed juice, organic coffee and a grocery shelf you can trace back to the field. Coming to the Cotswolds.</p>
-      <div class="actions" data-hero style="--d:.9s">
-        <a class="btn btn-gold magnetic" href="#story">See the plan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a class="btn btn-line magnetic" href="#range">The range</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="status" data-hero style="--d:.15s"><i></i>Coming soon to the Cotswolds</p>
+        <h1 data-split="hero">Fresh juice, good coffee and local food.</h1>
+        <p class="lead" data-hero style="--d:.7s">OrNature is a juice bar, cafe and food shop. We haven&rsquo;t picked the town yet, so this site shows where we&rsquo;re up to.</p>
+        <div class="actions" data-hero style="--d:.85s">
+          <a class="btn btn-dark magnetic" href="#contact">Get updates <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn-line magnetic" href="#shop">See the menu</a>
+        </div>
       </div>
+      <figure class="hero-photo" id="heroPhoto" data-hero style="--d:.3s" aria-roledescription="carousel" aria-label="Pictures of OrNature">
+        <div class="ph" id="slideView">
+          <div class="slides" id="slides">
+            <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3" data-cap="A mock-up of how the shop could look.">
+              <img src="img/hero.jpg" width="1448" height="1086" alt="A mock-up of the OrNature Cafe shopfront: a timber frontage with a green awning, a juice bar window full of fruit, and a cabinet of juices and sandwiches." fetchpriority="high" draggable="false">
+            </div>
+            <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true" data-cap="A mock-up of our herbal tea box.">
+              <img src="img/tea.jpg" width="1536" height="1024" alt="A mock-up of the OrNature herbal tea box, with six glass jars of loose leaf tea beside a teapot and cup." draggable="false">
+            </div>
+            <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true" data-cap="Local apples at Stroud farmers&rsquo; market.">
+              <img src="img/place/apples.jpg" width="1500" height="1000" alt="Trays of named Gloucestershire apple varieties on a market stall." draggable="false">
+            </div>
+          </div>
+        </div>
+        <div class="slider-foot">
+          <p class="slide-cap" id="slideCap">A mock-up of how the shop could look.</p>
+          <div class="dots">
+            <button class="dot on" type="button" aria-label="Show picture 1" aria-current="true"><span><i></i></span></button>
+            <button class="dot" type="button" aria-label="Show picture 2" aria-current="false"><span><i></i></span></button>
+            <button class="dot" type="button" aria-label="Show picture 3" aria-current="false"><span><i></i></span></button>
+          </div>
+        </div>
+      </figure>
     </div>
-    <a class="scroll-cue" href="#statement" aria-label="Scroll to the story" data-hero style="--d:1.2s"><span>Scroll</span><i></i></a>
   </section>
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
       <div class="ticker-group">
-        <span>Cold-pressed juice <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Organic coffee <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Loose leaf tea <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Local dairy <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Cotswolds honey <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Sourdough <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Mushroom coffee <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Gelato <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Cold-pressed juice</span><span>Organic coffee</span><span>Loose leaf tea</span><span>Local milk</span><span>Cotswolds honey</span><span>Sourdough</span><span>Mushroom coffee</span><span>Gelato</span>
       </div>
       <div class="ticker-group">
-        <span>Cold-pressed juice <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Organic coffee <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Loose leaf tea <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Local dairy <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Cotswolds honey <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Sourdough <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Mushroom coffee <svg class="ico"><use href="#leaf"/></svg></span>
-        <span>Gelato <svg class="ico"><use href="#leaf"/></svg></span>
+        <span>Cold-pressed juice</span><span>Organic coffee</span><span>Loose leaf tea</span><span>Local milk</span><span>Cotswolds honey</span><span>Sourdough</span><span>Mushroom coffee</span><span>Gelato</span>
       </div>
     </div>
   </div>
 
-  <section class="statement" id="statement">
-    <div class="wrap">
-      <p class="big-words" data-words>Everything on the shelf goes back to a field <em>we have stood in.</em></p>
-    </div>
-  </section>
-
-  <section class="sec" id="story" style="padding-top:clamp(40px,5vw,70px)">
+  <section class="sec" id="darren">
     <div class="wrap story-grid">
       <div>
-        <span class="label" data-reveal>The groundwork</span>
-        <h2 class="h" data-split>It starts on <em>the pavement.</em></h2>
-        <p class="lead" data-reveal>Darren Leech, our director, has been out counting tables on ordinary weekdays. On King Street, every one was taken by eleven.</p>
-        <a class="link-arrow" href="#towns" data-reveal>See where we&rsquo;re looking <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <h2 class="h" data-split>Darren has been counting tables</h2>
+        <p class="lead" data-reveal>Before we sign a lease, we want to see people paying for good food on an ordinary weekday. So Darren, our director, has been sitting outside busy cafes and counting.</p>
+        <p class="lead" data-reveal>Outside Bonne Bouche on King Street, every table was full by 11am.</p>
+        <a class="text-link" href="#towns" data-reveal>See the towns we&rsquo;re looking at <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
       <div class="collage">
         <figure class="c1" data-speed="-0.05">
-          <div class="ph" data-reveal="clip"><img src="img/darren-street.jpg" width="1500" height="1125" alt="Darren Leech on King Street, with the Bonne Bouche patisserie across the road behind him." loading="lazy"></div>
-          <figcaption class="tag">King Street</figcaption>
+          <div class="ph" data-reveal="clip"><img src="img/darren-street.jpg" width="1500" height="1125" alt="Darren on King Street, with Bonne Bouche across the road behind him." loading="lazy"></div>
+          <figcaption class="tag" data-reveal style="--i:5">King Street</figcaption>
         </figure>
         <figure class="c2" data-speed="0.07">
-          <div class="ph" data-reveal="clip" style="--i:1"><img src="img/darren.jpg" width="1500" height="1125" alt="Darren Leech in front of the patisserie's pavement terrace, with every table taken." loading="lazy"></div>
-          <figcaption class="tag">Full by 11am</figcaption>
+          <div class="ph" data-reveal="clip" style="--i:1"><img src="img/darren.jpg" width="1500" height="1125" alt="Darren in front of the Bonne Bouche terrace, with every table taken." loading="lazy"></div>
+          <figcaption class="tag" data-reveal style="--i:6">Full by 11am</figcaption>
         </figure>
         <figure class="c3" data-speed="-0.02">
-          <div class="ph" data-reveal="clip" style="--i:2"><img src="img/darren-blenheim.jpg" width="1500" height="1126" alt="Darren Leech beside the lake at Blenheim on a site visit." loading="lazy"></div>
-          <figcaption class="tag">Site visit, Blenheim</figcaption>
+          <div class="ph" data-reveal="clip" style="--i:2"><img src="img/darren-blenheim.jpg" width="1500" height="1126" alt="Darren beside the lake at Blenheim." loading="lazy"></div>
+          <figcaption class="tag" data-reveal style="--i:7">Blenheim, Oxfordshire</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <section class="band">
-    <div class="band-bg" data-speed="0.12"><img src="img/place/cotswolds.jpg" width="2400" height="696" alt="" loading="lazy"></div>
-    <div class="band-shade"></div>
+  <img class="strip" src="img/place/cotswolds.jpg" width="2400" height="696" alt="Cotswolds farmland: a field edged with poppies, a blue flax crop and woodland on the ridge." loading="lazy">
+
+  <section class="numbers">
     <div class="wrap">
-      <h2 class="h" data-split>Built for the people who <em>live here.</em></h2>
+      <h2 class="h" data-split>The numbers so far</h2>
       <div class="stats" data-stagger>
-        <div class="stat" data-reveal><b data-count="139000">139,000</b><span>residents across the Cotswolds National Landscape</span></div>
-        <div class="stat" data-reveal><b data-count="8">8</b><span>towns on the shortlist</span></div>
-        <div class="stat" data-reveal><b data-count="10">10</b><span>products in the range</span></div>
-        <div class="stat" data-reveal><b data-count="4">4</b><span>suppliers in the plan</span></div>
+        <div class="stat" data-reveal><b data-count="139000">139,000</b><span>people live in the Cotswolds National Landscape</span></div>
+        <div class="stat" data-reveal><b data-count="8">8</b><span>towns on our shortlist</span></div>
+        <div class="stat" data-reveal><b data-count="10">10</b><span>products to start with</span></div>
+        <div class="stat" data-reveal><b data-count="4">4</b><span>suppliers in our plan</span></div>
       </div>
     </div>
   </section>
 
-  <section class="towns" id="towns">
-    <div class="towns-sticky">
-      <div class="wrap sec-head">
-        <div>
-          <span class="label" data-reveal>Where</span>
-          <h2 class="h" data-split>Picking <em>the town.</em></h2>
-        </div>
-        <p class="lead" data-reveal>Ranked on year-round trade, not on busy August weekends.</p>
+  <section class="sec towns" id="towns">
+    <div class="wrap sec-head">
+      <div>
+        <h2 class="h" data-split>Where we might open</h2>
+        <p class="lead" data-reveal>We&rsquo;ve ranked eight towns on how busy they are all year round, not just in the summer holidays.</p>
       </div>
-      <div class="towns-track" id="track">
-        <article class="town">
-          <img src="img/place/witney.jpg" width="1500" height="1000" alt="The Market Square in Witney under plane trees, with autumn leaves across the square." loading="lazy">
-          <div class="town-meta"><span class="rank r-ex">Excellent</span><h3>Witney</h3><p>31,200 people. The largest town on the shortlist.</p></div>
-        </article>
-        <article class="town">
-          <img src="img/place/cirencester.jpg" width="1500" height="1000" alt="Cirencester Market Place, with the parish church tower above a row of painted shopfronts." loading="lazy">
-          <div class="town-meta"><span class="rank r-st">Strong</span><h3>Cirencester</h3><p>20,229 residents. The largest town inside the Cotswolds.</p></div>
-        </article>
-        <article class="town">
-          <img src="img/place/market.jpg" width="1500" height="1125" alt="Stroud farmers' market filling the street, with stalls down both sides and shoppers between them." loading="lazy">
-          <div class="town-meta"><span class="rank r-st">Strong</span><h3>Stroud</h3><p>Named one of the best places to live in the UK for 2026 by The Times.</p></div>
-        </article>
-        <article class="town">
-          <img src="img/place/tetbury.jpg" width="1500" height="1000" alt="Long Street in Tetbury seen from under the market cross, with bunting across the road." loading="lazy">
-          <div class="town-meta"><span class="rank">Medium</span><h3>Tetbury</h3><p>Pavement tables, and a smaller resident base.</p></div>
-        </article>
-        <article class="town">
-          <img src="img/place/stow.jpg" width="1500" height="1000" alt="The market square at Stow-on-the-Wold in evening sun, with the market cross in front of honey-coloured stone buildings." loading="lazy" style="object-position:82% 50%">
-          <div class="town-meta"><span class="rank">Low</span><h3>Stow-on-the-Wold</h3><p>Busy in August. Quiet in February.</p></div>
-        </article>
-        <article class="town town-end">
-          <span class="rank">Also ranked</span>
-          <ul class="also">
-            <li><b>Cheltenham</b><span>Excellent</span></li>
-            <li><b>Chipping Norton</b><span>Medium</span></li>
-            <li><b>Moreton-in-Marsh</b><span>Medium to low</span></li>
-          </ul>
-        </article>
+      <div class="car-controls" data-reveal>
+        <button class="car-btn prev" id="prev" type="button" aria-label="Previous towns" aria-controls="track"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button class="car-btn next" id="next" type="button" aria-label="Next towns" aria-controls="track"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
       </div>
-      <div class="wrap"><div class="towns-progress" aria-hidden="true"><i id="tprog"></i></div></div>
     </div>
+    <div class="track" id="track" tabindex="0" aria-label="Towns on our shortlist">
+      <article class="town">
+        <div class="ph"><img src="img/place/witney.jpg" width="1500" height="1000" alt="The market square in Witney under plane trees in autumn." loading="lazy" draggable="false"></div>
+        <div class="town-top"><h3>Witney</h3><span class="rank ex">Excellent</span></div>
+        <p>About 31,000 people. The biggest town on our list.</p>
+      </article>
+      <article class="town">
+        <div class="ph"><img src="img/place/cirencester.jpg" width="1500" height="1000" alt="Cirencester Market Place, with the church tower above the shops." loading="lazy" draggable="false"></div>
+        <div class="town-top"><h3>Cirencester</h3><span class="rank st">Strong</span></div>
+        <p>About 20,000 people. The biggest town in the Cotswolds itself.</p>
+      </article>
+      <article class="town">
+        <div class="ph"><img src="img/place/market.jpg" width="1500" height="1125" alt="Stroud farmers' market, with stalls down both sides of the street." loading="lazy" draggable="false"></div>
+        <div class="town-top"><h3>Stroud</h3><span class="rank st">Strong</span></div>
+        <p>A busy farmers&rsquo; market, and one of The Times&rsquo; best places to live for 2026.</p>
+      </article>
+      <article class="town">
+        <div class="ph"><img src="img/place/tetbury.jpg" width="1500" height="1000" alt="Long Street in Tetbury, with bunting across the road." loading="lazy" draggable="false"></div>
+        <div class="town-top"><h3>Tetbury</h3><span class="rank">Medium</span></div>
+        <p>A lovely high street, but fewer people live there.</p>
+      </article>
+      <article class="town">
+        <div class="ph"><img src="img/place/stow.jpg" width="1500" height="1000" alt="The market cross at Stow-on-the-Wold in evening sun." loading="lazy" draggable="false" style="object-position:82% 50%"></div>
+        <div class="town-top"><h3>Stow-on-the-Wold</h3><span class="rank">Low</span></div>
+        <p>Packed in summer, quiet in winter.</p>
+      </article>
+      <article class="town town-list">
+        <h3>Also on the list</h3>
+        <ul>
+          <li>Cheltenham <span class="rank ex">Excellent</span></li>
+          <li>Chipping Norton <span class="rank">Medium</span></li>
+          <li>Moreton-in-Marsh <span class="rank">Medium to low</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="wrap"><div class="car-progress" aria-hidden="true"><i id="cprog"></i></div></div>
   </section>
 
   <section class="sec" id="range">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <span class="label" data-reveal>The range</span>
-          <h2 class="h" data-split>Ten products. <em>One supply chain.</em></h2>
+          <h2 class="h" data-split>What we&rsquo;ll sell</h2>
+          <p class="lead" data-reveal>Ten products to start. If we can&rsquo;t tell you which farm or mill something came from, we won&rsquo;t sell it.</p>
         </div>
-        <p class="lead" data-reveal>If we can&rsquo;t name the farm or the mill, it doesn&rsquo;t go on the shelf.</p>
       </div>
-      <div class="bento" data-stagger>
-        <figure class="tile t-big" data-reveal>
-          <img src="img/collection.jpg" width="1600" height="800" alt="The OrNature Master Collection lined up on a stone counter: juice, milk, honey, spices, muesli, yoghurt, gelato, mushroom coffee, herbal tea and spring water." loading="lazy">
-          <figcaption><b>The Master Collection</b><span>From cold-pressed juice to spring water, in glass and kraft.</span></figcaption>
+      <div class="products" data-stagger>
+        <figure class="product" data-reveal>
+          <div class="ph"><img src="img/collection.jpg" width="1600" height="800" alt="Mock-up of the OrNature range: juice, milk, honey, spices, muesli, yoghurt, gelato, mushroom coffee, tea and water." loading="lazy"></div>
+          <figcaption><b>The full range</b><span>Juice and milk in glass bottles, and dry food in paper pouches.</span></figcaption>
         </figure>
-        <figure class="tile t-tall" data-reveal>
-          <img src="img/mushroom.jpg" width="766" height="1055" alt="A 200g tub of OrNature Mushroom Coffee Powder on a wooden table." loading="lazy">
-          <figcaption><b>Mushroom coffee</b><span>First off the line.</span></figcaption>
+        <figure class="product" data-reveal>
+          <div class="ph"><img src="img/mushroom.jpg" width="766" height="1055" alt="A tub of OrNature Mushroom Coffee Powder on a wooden table." loading="lazy"></div>
+          <figcaption><b>Mushroom coffee</b><span>The first thing we&rsquo;ve made. 200g tubs.</span></figcaption>
         </figure>
-        <figure class="tile t-a" data-reveal>
-          <img src="img/tea.jpg" width="1536" height="1024" alt="The OrNature Detox herbal tea box with six glass caddies of loose leaf blends." loading="lazy">
-          <figcaption><b>Detox tea</b><span>Six loose leaf blends. No bags.</span></figcaption>
+        <figure class="product" data-reveal>
+          <div class="ph"><img src="img/tea.jpg" width="1536" height="1024" alt="Mock-up of the OrNature herbal tea box with six glass jars." loading="lazy"></div>
+          <figcaption><b>Herbal tea</b><span>Six loose leaf blends in glass jars.</span></figcaption>
         </figure>
-        <figure class="tile t-b" data-reveal>
-          <img src="img/place/apples.jpg" width="1500" height="1000" alt="Trays of hand-labelled Gloucestershire apple varieties on a market stall." loading="lazy">
-          <figcaption><b>Named at source</b><span>Gloucestershire apple varieties at Stroud market.</span></figcaption>
-        </figure>
-        <div class="tile t-list" data-reveal>
-          <h3>In the range</h3>
-          <ul class="chips">
-            <li>Cold-pressed juice</li><li>Local dairy milk</li><li>Cotswolds honey</li><li>Spices</li><li>Wholefood muesli</li>
-            <li>Natural yoghurt</li><li>Gelato</li><li>Mushroom coffee</li><li>Herbal tea</li><li>Spring water</li>
-          </ul>
-        </div>
+      </div>
+      <div class="first-ten" data-reveal>
+        <b>The first ten:</b>
+        <ul class="chips">
+          <li>Cold-pressed juice</li><li>Local milk</li><li>Cotswolds honey</li><li>Spices</li><li>Muesli</li>
+          <li>Natural yoghurt</li><li>Gelato</li><li>Mushroom coffee</li><li>Herbal tea</li><li>Spring water</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="source" id="source">
-    <div class="source-bg" data-speed="0.12"><img src="img/place/drystone.jpg" width="1500" height="1000" alt="" loading="lazy"></div>
-    <div class="source-shade"></div>
-    <div class="wrap">
-      <span class="label" data-reveal>Sourcing</span>
-      <h2 class="h" data-split>From the field <em>to the fridge.</em></h2>
-      <ol class="steps" data-stagger>
-        <li data-reveal><h3>Grown</h3><p>Certified organic, mostly from growers close enough to visit.</p></li>
-        <li data-reveal><h3>Pressed</h3><p>Cold pressed in small batches. No concentrate, nothing added.</p></li>
-        <li data-reveal><h3>Tested</h3><p>Batch traceability and independent residue testing.</p></li>
-        <li data-reveal><h3>Returned</h3><p>Glass bottles and tea caddies, refilled when you bring them back.</p></li>
-      </ol>
-      <p class="partners" data-reveal><span class="label">In the supply plan</span>Abbey Home Farm <span aria-hidden="true">&middot;</span> Fresh Direct <span aria-hidden="true">&middot;</span> The Community Farm <span aria-hidden="true">&middot;</span> Roots &amp; Fruits</p>
-    </div>
-  </section>
-
-  <section class="sec format" id="format">
-    <div class="wrap format-grid">
-      <figure class="format-img">
-        <div class="ph" data-reveal="clip"><img src="img/terrace.jpg" width="1500" height="1125" alt="A busy pavement terrace outside a patisserie on a weekday morning, every table taken." loading="lazy"></div>
-        <figcaption data-reveal>Someone else&rsquo;s terrace at 11am on a weekday. The trade we&rsquo;re aiming for.</figcaption>
+  <section class="sec" id="sourcing" style="padding-top:0">
+    <div class="wrap two">
+      <figure class="photo">
+        <div class="ph" data-reveal="clip"><img src="img/place/drystone.jpg" width="1500" height="1000" alt="A Cotswold drystone wall along the edge of a ploughed field." loading="lazy"></div>
+        <figcaption data-reveal>Farmland near Cutsdean in the Cotswolds.</figcaption>
       </figure>
       <div>
-        <span class="label" data-reveal>The format</span>
-        <h2 class="h" data-split>Juice bar.<br>Cafe.<br><em>Grocery shelf.</em></h2>
-        <p class="lead" data-reveal>One room, used twice a day. Coffee on the way in, milk and muesli on the way home.</p>
-        <div class="menu" data-reveal>
-          <span class="menu-label">Planned menu</span>
+        <h2 class="h" data-split>Where the food comes from</h2>
+        <ol class="steps" data-stagger>
+          <li data-reveal><h3>Grown</h3><p>On organic farms, most of them close enough to visit in a morning.</p></li>
+          <li data-reveal><h3>Pressed</h3><p>Juice made in small batches, with nothing added.</p></li>
+          <li data-reveal><h3>Tested</h3><p>Every batch can be traced, and we&rsquo;ll send samples off for independent testing.</p></li>
+          <li data-reveal><h3>Refilled</h3><p>Bring back your glass bottles and tea jars and we&rsquo;ll fill them up again.</p></li>
+        </ol>
+        <p class="suppliers" data-reveal><b>Suppliers in our plan:</b> Abbey Home Farm, Fresh Direct, The Community Farm and Roots &amp; Fruits.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec shop" id="shop">
+    <div class="wrap two">
+      <figure class="photo">
+        <div class="ph" data-reveal="clip"><img src="img/terrace.jpg" width="1500" height="1125" alt="The Bonne Bouche terrace on King Street at 11am, with every table taken." loading="lazy"></div>
+        <figcaption data-reveal>Bonne Bouche on King Street at 11am on a weekday. This is the kind of trade we&rsquo;re aiming for.</figcaption>
+      </figure>
+      <div>
+        <h2 class="h" data-split>What the shop will be like</h2>
+        <p class="lead" data-reveal>A juice bar at the front, tables in the middle and food shelves at the back. Coffee on the way to work, lunch, then milk and bread on the way home.</p>
+        <div class="menu-list" data-reveal>
+          <h3>Planned prices</h3>
           <ul>
             <li><span class="n">Cold-pressed juice</span><span class="dots"></span><span class="p">&pound;5.50</span></li>
             <li><span class="n">Smoothies</span><span class="dots"></span><span class="p">&pound;6.00</span></li>
             <li><span class="n">Bowls and salads</span><span class="dots"></span><span class="p">&pound;8.50</span></li>
             <li><span class="n">Organic coffee</span><span class="dots"></span><span class="p">&pound;3.40</span></li>
             <li><span class="n">Herbal tea</span><span class="dots"></span><span class="p">&pound;3.60</span></li>
-            <li><span class="n">Bakery</span><span class="dots"></span><span class="p">from &pound;3</span></li>
+            <li><span class="n">Bread and cakes</span><span class="dots"></span><span class="p">from &pound;3</span></li>
           </ul>
         </div>
       </div>
@@ -625,12 +585,12 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
   <section class="cta" id="contact">
     <div class="sun" aria-hidden="true"></div>
     <div class="wrap">
-      <h2 class="cta-title" data-split>Coming to <em>the Cotswolds.</em></h2>
-      <p data-reveal>Sites, stockists and investors, or just want to hear when the doors open?</p>
+      <h2 data-split>Want to hear when we open?</h2>
+      <p data-reveal>Drop us an email. We&rsquo;d also like to hear from landlords, suppliers and investors.</p>
       <div class="actions" data-reveal>
         <a class="btn btn-gold magnetic" href="mailto:contact@ornature-wellness.com">contact@ornature-wellness.com <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
-      <p class="fine" data-reveal>Delivery to follow across Gloucestershire and Oxfordshire.</p>
+      <p class="fine" data-reveal>Delivery across Gloucestershire and Oxfordshire will follow.</p>
     </div>
   </section>
 
@@ -640,17 +600,17 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
   <div class="wrap foot-top">
     <a class="mark" href="#top" aria-label="OrNature, back to top"><img src="img/logo.png" width="1200" height="319" alt="OrNature" loading="lazy"></a>
     <ul>
-      <li><a href="#story">Story</a></li>
+      <li><a href="#darren">Our progress</a></li>
       <li><a href="#towns">Towns</a></li>
-      <li><a href="#range">Range</a></li>
-      <li><a href="#source">Sourcing</a></li>
+      <li><a href="#range">What we&rsquo;ll sell</a></li>
+      <li><a href="#shop">The shop</a></li>
       <li><a href="https://www.ornature-wellness.com">ornature-wellness.com</a></li>
     </ul>
   </div>
   <div class="wrap">
     <p class="credits">
-      Location photography under Creative Commons:
-      Cotswolds panorama &copy; <a href="https://commons.wikimedia.org/wiki/File:Flax-poppy-cotswolds.jpg">Saffron Blaze</a>, CC BY-SA 3.0.
+      Photos of the Cotswolds used under Creative Commons:
+      farmland &copy; <a href="https://commons.wikimedia.org/wiki/File:Flax-poppy-cotswolds.jpg">Saffron Blaze</a>, CC BY-SA 3.0.
       Cirencester &copy; <a href="https://commons.wikimedia.org/wiki/File:Market_Place,_Cirencester_-_geograph.org.uk_-_5877603.jpg">Bill Boaden</a>,
       Witney &copy; <a href="https://commons.wikimedia.org/wiki/File:The_Market_Square_in_Witney_-_geograph.org.uk_-_7936545.jpg">Steve Daniels</a>,
       Tetbury &copy; <a href="https://commons.wikimedia.org/wiki/File:Long_Street_from_Market_Cross,_Tetbury,_Gloucestershire_2015_-_geograph.org.uk_-_5845964.jpg">Ray Bird</a>,
@@ -658,7 +618,7 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
       drystone wall &copy; <a href="https://commons.wikimedia.org/wiki/File:Cotswold_drystone_wall_near_Cutsdean_-_geograph.org.uk_-_3930461.jpg">Roger Davies</a>, CC BY-SA 2.0 via Geograph.
       Apples &copy; <a href="https://commons.wikimedia.org/wiki/File:Stroud_Farmers%27_Market_..._apple_selection._-_Flickr_-_BazzaDaRambler.jpg">BazzaDaRambler</a>, CC BY 2.0.
       Stroud farmers&rsquo; market by <a href="https://commons.wikimedia.org/wiki/File:Farmers%27_market,_Stroud.jpg">Jongleur100</a>, public domain.
-      Shopfront and product images are visualisations of plans still in development.
+      The shopfront, range and tea box pictures are mock-ups.
     </p>
   </div>
 </footer>
@@ -672,8 +632,8 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
   function $$(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
   function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
 
-  /* ---- split text into words ---- */
-  function split(el, cls, masked){
+  /* ---- split headings into words ---- */
+  $$('[data-split]').forEach(function(el){
     var n = 0;
     (function walk(node){
       Array.prototype.slice.call(node.childNodes).forEach(function(ch){
@@ -682,17 +642,11 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
           ch.textContent.split(/(\s+)/).forEach(function(part){
             if(!part) return;
             if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
-            var w = document.createElement('span');
-            w.className = cls;
-            if(masked){
-              var inner = document.createElement('span');
-              inner.textContent = part;
-              inner.style.setProperty('--i', n);
-              w.appendChild(inner);
-            } else {
-              w.textContent = part;
-            }
-            n++;
+            var w = document.createElement('span'), inner = document.createElement('span');
+            w.className = 'w';
+            inner.textContent = part;
+            inner.style.setProperty('--i', n++);
+            w.appendChild(inner);
             frag.appendChild(w);
           });
           node.replaceChild(frag, ch);
@@ -701,10 +655,7 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
         }
       });
     })(el);
-  }
-  $$('[data-split]').forEach(function(el){ split(el, 'w', true); });
-  var stmt = $('[data-words]'), words = [];
-  if(stmt){ split(stmt, 'sw', false); words = $$('.sw', stmt); }
+  });
 
   $$('[data-stagger]').forEach(function(g){
     $$('[data-reveal]', g).forEach(function(el, i){ el.style.setProperty('--i', i); });
@@ -717,10 +668,9 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
     if(!reduce) el.textContent = '0';
   });
   function count(el){
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    var final = el.getAttribute('data-final');
+    var target = parseInt(el.getAttribute('data-count'), 10), final = el.getAttribute('data-final');
     if(reduce){ el.textContent = final; return; }
-    var t0 = null, dur = 1700;
+    var t0 = null, dur = 1600;
     function frame(ts){
       if(!t0) t0 = ts;
       var p = Math.min((ts - t0) / dur, 1);
@@ -742,7 +692,7 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
       entries.forEach(function(e){
         if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
     targets.forEach(function(el){ io.observe(el); });
   } else {
     targets.forEach(show);
@@ -761,7 +711,7 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
       requestAnimationFrame(function(){ requestAnimationFrame(function(){ menu.classList.add('open'); }); });
     } else {
       menu.classList.remove('open');
-      setTimeout(function(){ if(!menuOpen) menu.hidden = true; }, reduce ? 0 : 480);
+      setTimeout(function(){ if(!menuOpen) menu.hidden = true; }, reduce ? 0 : 450);
     }
   }
   burger.addEventListener('click', function(){ setMenu(!menuOpen); });
@@ -770,102 +720,131 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
     if(e.key === 'Escape' && menuOpen){ setMenu(false); burger.focus(); }
   });
 
-  /* ---- towns: pinned horizontal scroll on wide screens ---- */
-  var towns = $('#towns'), track = $('#track'), tprog = $('#tprog'), pinned = false, dist = 0;
-  function layoutTowns(){
-    pinned = !reduce && window.innerWidth >= 900;
-    towns.classList.toggle('is-pinned', pinned);
-    track.style.transform = '';
-    if(pinned){
-      var last = track.lastElementChild;
-      var padL = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-      dist = Math.max(0, last.offsetLeft + last.offsetWidth + padL - track.clientWidth);
-      towns.style.height = (dist + window.innerHeight) + 'px';
-    } else {
-      dist = 0;
-      towns.style.height = '';
-    }
+  /* ---- towns carousel ---- */
+  var track = $('#track'), prev = $('#prev'), next = $('#next'), cprog = $('#cprog');
+  function step(){
+    var card = track.querySelector('.town');
+    return card ? card.offsetWidth + (parseFloat(getComputedStyle(track).columnGap) || 18) : 300;
   }
-  function paintTowns(){
-    if(!pinned) return;
-    var p = clamp(-towns.getBoundingClientRect().top / Math.max(dist, 1), 0, 1);
-    track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
-    tprog.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+  function updateCarousel(){
+    var max = track.scrollWidth - track.clientWidth;
+    var x = track.scrollLeft;
+    prev.disabled = x <= 4;
+    next.disabled = x >= max - 4;
+    cprog.style.transform = 'scaleX(' + (max > 0 ? clamp(x / max, 0, 1) : 1).toFixed(4) + ')';
   }
-  track.addEventListener('scroll', function(){
-    if(pinned) return;
-    var m = track.scrollWidth - track.clientWidth;
-    tprog.style.transform = 'scaleX(' + (m > 0 ? track.scrollLeft / m : 0).toFixed(4) + ')';
-  }, { passive: true });
-  if('IntersectionObserver' in window){
-    var near = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting){
-        $$('img', track).forEach(function(img){ img.loading = 'eager'; });
-        near.disconnect();
+  prev.addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }); });
+  next.addEventListener('click', function(){ track.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }); });
+  track.addEventListener('scroll', function(){ requestAnimationFrame(updateCarousel); }, { passive: true });
+  track.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ e.preventDefault(); next.click(); }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); prev.click(); }
+  });
+  if(fine){
+    var dragging = false, startX = 0, startLeft = 0, moved = 0;
+    track.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragging = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      if(moved > 4) track.classList.add('dragging');
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function(){
+      if(!dragging) return;
+      dragging = false;
+      if(track.classList.contains('dragging')){
+        var left = track.scrollLeft;
+        track.classList.remove('dragging');
+        track.scrollLeft = left;
+        var s = step(), target = Math.round(left / s) * s;
+        track.scrollTo({ left: target, behavior: reduce ? 'auto' : 'smooth' });
       }
-    }, { rootMargin: '100% 0px' });
-    near.observe(towns);
+    });
   }
 
-  /* ---- scroll-driven paint ---- */
-  var hero = $('.hero'), heroMedia = $('.hero-media'), heroInner = $('.hero-inner'), pbar = $('#pbar');
-  var par = $$('[data-speed]').map(function(el){
-    return { el: el, host: el.parentElement, s: parseFloat(el.getAttribute('data-speed')), wideOnly: !!el.closest('.collage') };
+  /* ---- hero slider ---- */
+  var hp = $('#heroPhoto'), view = $('#slideView'), slidesEl = $('#slides');
+  var slides = $$('.slide', hp), dots = $$('.dot', hp), cap = $('#slideCap'), cur = 0;
+  function go(n){
+    cur = (n + slides.length) % slides.length;
+    slidesEl.style.transform = 'translate3d(' + (-cur * 100) + '%,0,0)';
+    slides.forEach(function(sl, i){
+      sl.classList.toggle('is-active', i === cur);
+      sl.setAttribute('aria-hidden', i === cur ? 'false' : 'true');
+    });
+    dots.forEach(function(d, i){
+      d.classList.remove('on');
+      d.setAttribute('aria-current', i === cur ? 'true' : 'false');
+    });
+    void hp.offsetWidth;
+    dots[cur].classList.add('on');
+    cap.textContent = slides[cur].getAttribute('data-cap');
+  }
+  dots.forEach(function(d, i){
+    d.addEventListener('click', function(){ go(i); });
+    d.querySelector('i').addEventListener('animationend', function(){
+      if(d.classList.contains('on') && hp.classList.contains('playing')) go(cur + 1);
+    });
+    d.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        e.preventDefault();
+        go(cur + (e.key === 'ArrowRight' ? 1 : -1));
+        dots[cur].focus();
+      }
+    });
   });
-  var lastY = 0, litCount = -1, ticking = false;
+  var swipeX = null;
+  view.addEventListener('pointerdown', function(e){ swipeX = e.clientX; });
+  window.addEventListener('pointerup', function(e){
+    if(swipeX === null) return;
+    var dx = e.clientX - swipeX;
+    swipeX = null;
+    if(Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+  });
+  window.addEventListener('pointercancel', function(){ swipeX = null; });
+  document.addEventListener('visibilitychange', function(){ hp.classList.toggle('paused', document.hidden); });
+
+  /* ---- scroll effects ---- */
+  var pbar = $('#pbar');
+  var par = $$('[data-speed]').map(function(el){
+    return { el: el, host: el.parentElement, s: parseFloat(el.getAttribute('data-speed')) };
+  });
+  var lastY = 0, ticking = false;
   function paint(){
     ticking = false;
     var y = window.pageYOffset || root.scrollTop || 0, vh = window.innerHeight;
-    var heroH = hero.offsetHeight;
-
-    head.classList.toggle('solid', y > heroH - head.offsetHeight - 10);
+    head.classList.toggle('scrolled', y > 10);
     if(!menuOpen){
-      if(y > vh * .5 && y > lastY + 5) head.classList.add('hide');
-      else if(y < lastY - 5 || y <= vh * .5) head.classList.remove('hide');
+      if(y > vh * .6 && y > lastY + 5) head.classList.add('hide');
+      else if(y < lastY - 5 || y <= vh * .6) head.classList.remove('hide');
     }
     lastY = y;
-
     var max = root.scrollHeight - vh;
     pbar.style.transform = 'scaleX(' + (max > 0 ? clamp(y / max, 0, 1) : 0).toFixed(4) + ')';
-
     if(!reduce){
-      if(y < heroH){
-        heroMedia.style.transform = 'translate3d(0,' + (y * .32).toFixed(1) + 'px,0)';
-        heroInner.style.transform = 'translate3d(0,' + (y * .14).toFixed(1) + 'px,0)';
-        heroInner.style.opacity = clamp(1 - y / (heroH * .72), 0, 1).toFixed(3);
-      }
       var wide = window.innerWidth >= 900;
       for(var i = 0; i < par.length; i++){
-        if(par[i].wideOnly && !wide){ par[i].el.style.transform = ''; continue; }
+        if(!wide){ par[i].el.style.transform = ''; continue; }
         var r = par[i].host.getBoundingClientRect();
         if(r.bottom < -120 || r.top > vh + 120) continue;
         par[i].el.style.transform = 'translate3d(0,' + ((r.top + r.height / 2 - vh / 2) * par[i].s).toFixed(1) + 'px,0)';
       }
-      if(words.length){
-        var sr = stmt.getBoundingClientRect();
-        var lit = Math.round(clamp((vh * .82 - sr.top) / (sr.height + vh * .3), 0, 1) * words.length);
-        if(lit !== litCount){
-          for(var k = 0; k < words.length; k++) words[k].classList.toggle('lit', k < lit);
-          litCount = lit;
-        }
-      }
     }
-    paintTowns();
   }
   function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(paint); } }
   window.addEventListener('scroll', onScroll, { passive: true });
-  var rt;
-  window.addEventListener('resize', function(){
-    clearTimeout(rt);
-    rt = setTimeout(function(){ layoutTowns(); paint(); }, 120);
-  });
+  window.addEventListener('resize', function(){ onScroll(); updateCarousel(); });
 
   /* ---- magnetic buttons ---- */
   if(fine && !reduce){
     $$('.magnetic').forEach(function(b){
       b.addEventListener('pointermove', function(e){
         var r = b.getBoundingClientRect();
-        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .2).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px)';
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .28).toFixed(1) + 'px)';
       });
       b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
     });
@@ -881,17 +860,17 @@ body.menu-open .mark img{filter:brightness(0) invert(1)}
     body.classList.add('ready');
     if(loader){
       loader.classList.add('done');
-      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 1200);
+      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 1100);
     }
-    layoutTowns();
     paint();
+    updateCarousel();
+    if(!reduce){ hp.classList.add('playing'); go(0); }
   }
-  layoutTowns();
   paint();
+  updateCarousel();
   window.addEventListener('load', function(){
-    layoutTowns();
-    paint();
-    setTimeout(open, reduce ? 0 : Math.max(0, 1300 - (Date.now() - began)));
+    updateCarousel();
+    setTimeout(open, reduce ? 0 : Math.max(0, 1200 - (Date.now() - began)));
   });
   setTimeout(open, 4500);
 
